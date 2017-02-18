@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>AJAX 2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="JavaScript" type="text/javascript">
+            //Variable que gestionar el objeto XMLHttpRequest
+            var objetoAjax = false;
+
+
+
+
+            //Función que se ejecutará cada vez que cambie readyState del objeto XMLHttpRequest
+            /*function muestraContenido() {
+             var capaVariable = document.getElementById("capa1");
+             var capaEncabezado = document.getElementById("capa2");
+             if (objetoAjax.readystate === 4)
+             if (objetoAjax.status === 200) {
+             capaVariable.innerHTML += "<br>" + objetoAjax.responseText;
+             capaEncabezado.innerHTML = "<h3>Encabezado de contenido de pagina " +
+             objetoAjax.getResponseHeader("Content-Type") + "</h3>";
+             } else
+             capaVariable.innerHTML += "<br>Error: " + objetoAjax.status;
+             else
+             capaVariable.innerHTML += "<br>Cargando..........";
+             }*/
+
+
+
+            //Función que se iniciará cuando pulsen el botón en la página
+            function primerPaso() {
+                try {
+                    objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+                    alert("Creado como \"Msxml12.XMLHTTP\"");
+                } catch (error) {
+                    try {
+                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                        alert("Creado como \"Microsoft.XMLHTTP\"");
+                    } catch (error) {
+                        objetoAjax = false;
+                        alert("Navegador no soportado");
+                    }
+                }
+
+                if (!objetoAjax && typeof XMLHttpRequest !== "undefined") {
+                    objetoAjax = new XMLHttpRequest();
+                }
+
+
+                /*try {
+                 objetoAjax = new ActiveXObject("Msxml2.XMLHTTP");
+                 alert("Request Created Msxml2.XMLHTTP");
+                 alert("Ready State: " + objetoAjax.readyState + "Status: " + objetoAjax.status);
+                 } catch (e) {
+                 try {
+                 objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                 alert("Request Created Microsoft.XMLHTTP");
+                 alert("Ready State: " + objetoAjax.readyState + "Status: " + objetoAjax.status);
+                 } catch (e) {
+                 objetoAjax = new XMLHttpRequest();
+                 alert("Request Created Natively");
+                 alert("Ready State: " + objetoAjax.readyState + "Status: " + objetoAjax.status);
+                 }
+                 }*/
+
+
+                //Una vez creado, definimos la función, abrimos conexión y enviamos la petición
+                //alert("Ready State (FUERA): " + objetoAjax.readyState + "Status (FUERA): " + objetoAjax.status);
+                objetoAjax.onReadyStateChange = function () {
+                    var capaVariable = document.getElementById("capa1");
+                    var capaEncabezado = document.getElementById("capa2");
+                    if (objetoAjax.readystate === 4)
+                        if (objetoAjax.status === 200) {
+                            capaVariable.innerHTML += "<br>" + objetoAjax.responseText;
+                            capaEncabezado.innerHTML = "<h3>Encabezado de contenido de pagina " +
+                                    objetoAjax.getResponseHeader("Content-Type") + "</h3>";
+                        } else
+                            capaVariable.innerHTML += "<br>Error: " + objetoAjax.status;
+                    else
+                        capaVariable.innerHTML += "<br>Cargando..........";
+                };
+                objetoAjax.open("GET", "pruebadecarga.html", true);
+                objetoAjax.send();
+            }
+        </script>
+        <style type="text/css">
+            #capa1 {
+                position:absolute;
+                width:400px;
+                height:300px;
+                z-index:1;
+                left: 90px;
+                top: 88px;
+                font-family: sans-serif;
+            }
+            #capa2 {
+                position:absolute;
+                width:400px;
+                height:120px;
+                z-index:2;
+                left: 90px;
+                top: 400px;
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" name="button" id="button" value="Cargar página" onclick="primerPaso()" />
+        <div id="capa1"></div>
+        <div id="capa2"></div>
+    </body>
+</html>

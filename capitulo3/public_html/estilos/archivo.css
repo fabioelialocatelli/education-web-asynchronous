@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30/11/2016, 5:56:50 PM
+    Author     : Fabio Elia Locatelli
+*/
+
+body {
+    background: wheat;
+    font-size: 10pt;
+    font-family: magneto, helvetica;
+    margin-left: 0.5in;
+    margin-right: 0.5in;
+}
+h1 {
+    background: blue;
+    font-size: 14pt; 
+    font-weight: bold;
+    color: red;
+}
+h2 {
+    font-size: 12pt;
+    font-weight: bold;
+    color: white;
+}
+div {
+    width: 600px;
+    height: 300px;
+    background-image: URL(fondos/drome.jpg);
+    background-size: cover;
+    font-weight: bold;
+}
+p {
+    color: whitesmoke;
+    font-style: italic;
+}
+

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Divisores JavaScript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="JavaScript">
+            function procesaNumero(numeroUsuario){
+                var numero = parseInt(numeroUsuario);
+                var esPrimo = true;
+                
+                for(i = 2; i <= (numero-1); i++){
+                    if((numero % i) === 0){                        
+                        esPrimo = false;
+                        document.write("<h4>El numero puede ser dividido por " + i + "</h4>");                        
+                    }
+                }
+                
+                if(esPrimo){
+                    document.write("<h4>El numero es primo</h4>");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script language="JavaScript">
+            var numeroIntroducido = 0;
+            numeroIntroducido = prompt("Por favor introduce un numero", "33");
+            document.write("<h3>El numero introducido es " + numeroIntroducido + "</h3>");
+            procesaNumero(numeroIntroducido);            
+        </script>
+    </body>
+</html>

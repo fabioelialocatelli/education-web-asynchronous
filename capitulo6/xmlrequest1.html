@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Primer Paso</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="JavaScript" type="text/javascript">
+
+            function primerPaso() {
+                var objetoAjax = false;
+                try {
+                    objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+                    //Para navegadores diferentes a Internet Explorer
+                } catch (error) {
+                    try {
+                        //Para navegador Internet Explorer
+                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (error) {
+                        objetoAjax = false;
+                    }
+                }
+                if (!objetoAjax && typeof XMLHttpRequest !== "undefined") {
+                    objetoAjax = new XMLHttpRequest();
+                }
+
+                objetoAjax.open("GET", "pruebadecarga.html", true);
+                alert("Valor de estado: " + objetoAjax.readyState);
+                objetoAjax.send();
+
+                alert("Cuadro de espera para que se termine de cargar la página.");
+                alert("Valor de estado: " + objetoAjax.readyState + " Texto: " + objetoAjax.statusText);
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" name="button" id="button" value="Crear Objeto AJAX" onclick=" primerPaso()" />
+    </body>
+</html>

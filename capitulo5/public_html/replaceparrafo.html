@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Reemplazar Parrafos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript" type="text/javascript">
+
+        function reemplazarParrafo(){
+            //Declaramos parrafo a substituir y texto nuevo
+            var numeroParrafo = document.getElementById("numero").value;
+            var texto = document.getElementById("texto").value;
+            var contenedor = document.getElementById("contenedor");
+            
+            //Obtenemos párrafo a sustituir
+            var parrafo = document.getElementsByTagName("p")[numeroParrafo - 1];
+            //Le añadimos al texto el número de párrafo
+            texto = numeroParrafo + " - " + texto;
+            
+            //Creamos nuevo nodo
+            var nuevoParrafo = document.createElement("p");
+            var nuevoNodoTexto = document.createTextNode(texto);
+            nuevoParrafo.appendChild(nuevoNodoTexto);
+            
+            //Sustituimos un nodo por otro
+            contenedor.replaceChild(nuevoParrafo, parrafo);
+        }
+
+        </script>
+    </head>
+    <body>
+        <input type="text" name="numero" id="numero" />
+        <input type="button" name="button" id="button" value="Sustituir" onclick="reemplazarParrafo()"/><br>
+        <textarea name="texto" id="texto" cols="45" rows="5"></textarea>
+        <div id="contenedor">
+            <p>1 - Primer Párrafo</p>
+            <p>2 - Segundo Párrafo</p>
+            <p>3 - Último Párrafo</p>
+        </div>
+    </body>
+</html>

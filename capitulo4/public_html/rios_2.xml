@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <rios>
+        <rio>
+            <nombre>Ganges</nombre>
+            <pais>Bangladesh</pais>
+            <pais>India</pais>
+            <caudal>16648 m3/s</caudal>
+            <cuenca>1080000 km2</cuenca>
+            <longitud>2525 km</longitud>
+        </rio>
+        <rio>
+            <nombre>Brahmaputra</nombre>
+            <pais>Bangladesh</pais>
+            <pais>China</pais>
+            <pais>India</pais>
+            <caudal>19300 m3/s</caudal>
+            <cuenca>651334 km2</cuenca>
+            <longitud>2900 km</longitud>
+        </rio>
+        <rio>
+            <nombre>Ob</nombre>
+            <pais>Rusia</pais>
+            <caudal>12475 m3/s</caudal>
+            <cuenca>2972497 km2</cuenca>
+            <longitud>3650 km</longitud>
+        </rio>
+        <rio>
+            <nombre>Lena</nombre>
+            <pais>Rusia</pais>
+            <caudal>16870 m3/s</caudal>
+            <cuenca>2500000 km2</cuenca>
+            <longitud>4700 km</longitud>
+        </rio>
+        <rio>
+            <nombre>Congo</nombre>
+            <pais>Angola</pais>
+            <pais>Burundi</pais>
+            <pais>Cameroon</pais>
+            <pais>Congo</pais>
+            <pais>Gabon</pais>
+            <pais>Rwanda</pais>
+            <pais>Tanzania</pais>
+            <pais>Zaire</pais>
+            <pais>Zambia</pais>
+            <caudal>75000 m3/s</caudal>
+            <cuenca>4014500 km2</cuenca>
+            <longitud>4700 km</longitud>
+        </rio>
+        <rio>
+            <nombre>Amur</nombre>
+            <pais>China</pais>
+            <pais>Rusia</pais>
+            <caudal>19600 m3/s</caudal>
+            <cuenca>2580000 km2</cuenca>
+            <longitud>5540 km</longitud>
+        </rio>
+        <rio>
+            <nombre>Yenisei</nombre>
+            <pais>Mongolia</pais>
+            <pais>Rusia</pais>
+            <caudal>11400 m3/s</caudal>
+            <cuenca>1855000 km2</cuenca>
+            <longitud>2824 km</longitud>
+        </rio>
+    </rios>
+</root>

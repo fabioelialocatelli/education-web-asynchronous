@@ -1,0 +1,62 @@
+<html>
+    <head>
+    <title>JavaScript Condicionales</title>
+    
+    <script language="JavaScript">
+        //Normalmente utilizo Switch para situcaiones similares
+        function mensaje(valor)
+        {
+            switch(valor){
+                case "1":
+                    alert("Tu deporte favorito es el Fútbol");
+                break;
+                case "2":
+                    alert("Tu deporte favorito es el Baloncesto");
+                break;
+                case "3":
+                    alert("Tu deporte favorito es el Ajedrez");
+                break;
+                case "4":
+                    alert("Tu deporte favorito es el Tenis");
+                break;
+                case "5":
+                    alert("Tu deporte favorito es el Voleibol");
+                break;
+                case "6":
+                    alert("Tu deporte favorito son los Bolos");
+                break;
+                default:
+                    alert ("No has elegido ninguno de los deportes!!!!"); 
+                break;
+            }
+        }
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <center><h1>ELIGE TU DEPORTE FAVORITO</h1>
+        <table border="2">
+        <tr>
+            <td align="center"><b>1 - Futbol</b></td>
+            <td align="center"><b>2 - Baloncesto</b></td>
+            <td align="center"><b>3 - Ajedrez</b></td>
+        </tr>
+        <tr>
+            <td align="center"><b>4- Tenis</b></td>
+            <td align="center"><b>5- Voleibol</b></td>
+            <td align="center"><b>6- Bolos</b></td>
+        </tr>
+        </table>
+        </center>
+    
+        <script language="javascript">
+            //Voleibol por defecto
+            deporteFavorito = prompt("¿Cual es su deporte favorito? (Indique el numero)", "5");
+            //Se llama la funcion y se le envia lo que el usuario haya indicado
+            mensaje(deporteFavorito);
+        </script>
+        
+    </body>
+</html>

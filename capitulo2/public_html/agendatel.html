@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Rios Europeos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {   
+                text-align: center;
+                font-family: arial, sans-serif, helvetica;
+            }
+            h1 {                
+                text-decoration: underline;
+                text-transform: capitalize;
+            }
+            table, td, th{
+                border: 1px solid black;
+                margin: auto;
+            }
+        </style>
+        <script>
+            function crearMatriz(){
+                var dordogne = new Array('Dordogne', '450', '23957', '483');
+                var ebro = new Array('Ebro', '600', '86100', '950');
+                var garonne = new Array('Garonne', '650', '55000', '647');
+                var drava = new Array('Drava', '670', '4120', '749');
+                var po = new Array('Po', '1540', '71000', '652');
+                
+                var rios = new Array(dordogne, ebro, garonne, drava, po);
+                return rios;
+            }
+            function procesaDatos(matrizRios){
+                
+                for(i = 0; i < matrizRios.length; i++){
+                    for(j = 0; j < matrizRios[i].length; j++){
+                        if(j < matrizRios[i].length - 1) document.write(matrizRios[i][j] + " -- ");
+                        else document.write(matrizRios[i][j]);
+                    }
+                    document.write("</br>");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Rios Europeos</h1>
+        <script>
+            var rios = crearMatriz();
+            procesaDatos(rios);
+        </script>
+    </body>
+</html>
+

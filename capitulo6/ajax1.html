@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>AJAX 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="JavaScript" type="text/javascript">
+            //Variable que gestionar el objeto XMLHttpRequest
+            var objetoAjax = false;
+            //Función que se ejecutará cada vez que cambie readyState del objeto XMLHttpRequest
+            function muestraContenido() {
+                var capaVariable = document.getElementById("capa");
+                if (objetoAjax.readystate === 4)
+                    if (objetoAjax.status === 200) {
+                        capaVariable.innerHTML += "<br>" + objetoAjax.responseText;
+                    } else
+                        capaVariable.innerHTML += "<br>Error: " + objetoAjax.status;
+                else
+                    capaVariable.innerHTML += "<br>Cargando..........";
+            }
+            //Función que se iniciará cuando pulsen el botón en la página
+            function primerPaso() {
+                //Creamos el objeto XMLHttpRequest
+                try {
+                    //Para navegadores diferentes a Internet Explorer
+                    objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+                } catch (error) {
+                    try {
+                        //Para navegador Internet Explorer
+                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (error) {
+                        objetoAjax = false;
+                    }
+                }
+                if (!objetoAjax && typeof XMLHttpRequest !== "undefined") {
+                    objetoAjax = new XMLHttpRequest();
+                }
+                //Una vez creado, definimos la función, abrimos conexión y enviamos la petición
+                objetoAjax.onReadyStateChange = muestraContenido;
+                objetoAjax.open("GET", "pruebadecarga.html", true);
+                objetoAjax.send();
+            }
+        </script>
+        <style type="text/css">
+            #capa {
+                position:absolute;
+                width:400px;
+                height:300px;
+                z-index:1;
+                left: 90px;
+                top: 88px;
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" name="button" id="button" value="Cargar página" onclick="primerPaso()" />
+        <div id="capa"></div>
+    </body>
+</html>

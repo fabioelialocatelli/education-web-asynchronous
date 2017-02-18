@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<?xml-stylesheet href="estilos/rios.xsl" type="text/xsl"?>
+
+<root>
+    <rios>
+	<rio>
+		<localName>Amur</localName>
+		<averageDischarge>11400</averageDischarge>
+		<catchmentBasin>1855000</catchmentBasin>
+		<length>2824</length>
+		<mouthLocation>52.955644, 141.116822</mouthLocation>
+	</rio>
+	<rio>
+		<localName>Dnieper</localName>
+		<averageDischarge>1670</averageDischarge>
+		<catchmentBasin>504000</catchmentBasin>
+		<length>2145</length>
+		<mouthLocation>46.503440, 32.271612</mouthLocation>
+	</rio>
+	<rio>
+		<localName>Don</localName>
+		<averageDischarge>935</averageDischarge>
+		<catchmentBasin>425600</catchmentBasin>
+		<length>1950</length>
+		<mouthLocation>47.133072, 39.223318</mouthLocation>
+	</rio>
+	<rio>
+		<localName>Irtysh</localName>
+		<averageDischarge>2150</averageDischarge>
+		<catchmentBasin>1643000</catchmentBasin>
+		<length>4248</length>
+		<mouthLocation>61.081285, 68.820798</mouthLocation>
+	</rio>
+	<rio>
+		<localName>Lena</localName>
+		<averageDischarge>16870</averageDischarge>
+		<catchmentBasin>2500000</catchmentBasin>
+		<length>4400</length>
+		<mouthLocation>71.884712, 127.208501</mouthLocation>
+	</rio>
+	<rio>
+		<localName>Ob</localName>
+		<averageDischarge>12475</averageDischarge>
+		<catchmentBasin>2972497</catchmentBasin>
+		<length>3650</length>
+		<mouthLocation>66.787780, 69.118569</mouthLocation>
+	</rio>
+	<rio>
+		<localName>Ural</localName>
+		<averageDischarge>400</averageDischarge>
+		<catchmentBasin>231000</catchmentBasin>
+		<length>2428</length>
+		<mouthLocation>46.830407, 51.531407</mouthLocation>
+	</rio>
+	<rio>
+		<localName>Volga</localName>
+		<averageDischarge>8060</averageDischarge>
+		<catchmentBasin>1380000</catchmentBasin>
+		<length>3692</length>
+		<mouthLocation>46.737918, 47.847426</mouthLocation>
+	</rio>
+	<rio>
+		<localName>Yenisei</localName>
+		<averageDischarge>19600</averageDischarge>
+		<catchmentBasin>2580000</catchmentBasin>
+		<length>5540</length>
+		<mouthLocation>71.023373, 83.109517</mouthLocation>
+	</rio>
+    </rios>
+</root>

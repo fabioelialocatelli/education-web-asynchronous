@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Galeria Barroca</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            body {
+                font-family: sans-serif;
+            }
+            #cuadro {
+                position:absolute;
+                width:auto;
+                height:auto;
+                z-index:1;
+                left: 35px;
+                top: 72px;
+                border-style: solid;
+                border-color: #000000;
+                border-width: 2px;
+            }
+            #explicaciones {
+                position:absolute;
+                width:275px;
+                height:85px;
+                z-index:1;
+                left: 378px;
+                top: 73px;
+                border-style: solid;
+                border-color: #000000;
+                border-width: 2px;
+            }
+            #boton {
+                position:absolute;
+                z-index:1;
+                left: 391px;
+                top: 179px;
+            }
+        </style>
+        <script language="javascript">
+            var posicion = 0;
+            var arrayIMG = new Array("davidgoliat.jpg", "descendimiento.jpg", "vocaciondesanmateo.jpg");
+            var arrayDSC = new Array("Pintado hacia 1599-1600 por Caravaggio. Narra la historia de David contra Goliath. Se conserva actualmente en el Museo del Prado.", "Encargo que se le realizó a Rubens en 1611. Terminado en 1614 destaca por el uso de la luz y figuras un tanto pasadas de peso.", "Al oleo sobre lienzo, encargada en 1699 a Caravaggio para decorar la capilla Contarelli en la iglesia romana de San Luis de los Franceses donde aun se conserva.");
+
+            function cargar() {
+                var capaIMG = document.getElementById("cuadro");
+                var capaDSC = document.getElementById("explicaciones");
+                capaIMG.innerHTML = "<img src='imagenes/" + arrayIMG[posicion] + "'/>";
+                capaDSC.innerHTML = arrayDSC[posicion];
+                if (++posicion === 3)
+                    posicion = 0;
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>GALERIA DE CUADROS BARROCOS</h1>
+        <div id="cuadro">Aqui se muestran la imagenes de los cuadros</div>
+        <div id="explicaciones">Aqui se muestran la explicaciones de los cuadros</div>
+        <div id="boton">
+            <input type="button" name="siguiente" id="siguiente" value="Siguiente" onclick="cargar()" />
+        </div>
+
+    </body>
+</html>

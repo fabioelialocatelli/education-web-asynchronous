@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Parametros</title>
+        <script language="JavaScript" type="text/javascript">
+            var objetoAjax = false;
+            function muestraContenido() {
+
+                var capa = document.getElementById("contenido");
+                var parrafo = document.getElementById("resultado");
+                if (objetoAjax.readyState === 4)
+                    if (objetoAjax.status === 200) {
+
+                        parrafo.innerHTML = objetoAjax.statusText;
+                        capa.innerHTML += objetoAjax.responseText;
+                    } else {
+                        parrafo.innerHTML = objetoAjax.status;
+                    }
+                else {
+                    parrafo.innerHTML = "Iniciando proceso";
+                }
+            }
+
+            function primerPaso() {
+                try {
+                    objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+                } catch (e) {
+                    try {
+                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (e) {
+                        objetoAjax = false;
+                    }
+                }
+                if (!objetoAjax && typeof XMLHttpRequest !== "undefined") {
+                    objetoAjax = new XMLHttpRequest();
+                }
+
+                var formulario = document.getElementById("form1");
+                var parrafoNuevo = document.createElement("p");
+                parrafoNuevo.id = "resultado";
+                formulario.appendChild(parrafoNuevo);
+
+                objetoAjax.onreadystatechange = muestraContenido;
+
+                var url = creaURL();
+                objetoAjax.open("POST", "parametro.php", true);
+                objetoAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                objetoAjax.send(url);
+            }
+
+            function creaURL() {
+                var nombre = document.getElementById("nombre");
+                var apellidos = document.getElementById("apellidos");
+                var direccion = document.getElementById("direccion");
+                var radio = document.getElementById("radio");
+                if (radio.checked)
+                    radio = "Sí";
+                else
+                    radio = "No";
+
+                var parametros = "nombre=" + encodeURIComponent(nombre.value) +
+                        "&apellidos=" + encodeURIComponent(apellidos.value);
+                parametros += "&direccion=" + encodeURIComponent(direccion.value) +
+                        "&decision=" + encodeURIComponent(radio);
+                return(parametros);
+            }
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css"> 
+            body  {
+                font: 100% Verdana, Arial, Helvetica, sans-serif;
+                background: beige;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                color: #000000;
+            }
+            #contenido {
+                width: 75%;
+                background:darkgray;
+                text-align: left;
+                margin: 2em;
+                padding: 2em;
+            } 
+        </style>
+    </head>
+
+    <body>
+        <div id="contenido">
+            <form id="form1" name="form1" method="post" action="">
+                <p>
+                    Nombre: <input type="text" name="nombre" id="nombre" /><br />
+                    Apellidos: <input type="text" name="apellidos" id="apellidos" /><br />
+                    Dirección: <input type="text" name="direccion" id="direccion" /><br />
+                    Desea continuar:<br />
+                    Sí <input type="radio" name="radio" id="radio" value="Sí" />
+                    No <input type="radio" name="radio" id="radio" value="No" />
+                </p>
+                <p>
+                    <input type="button" name="button" id="button" value="Ver mensaje" onclick="primerPaso()" />
+                </p>
+            </form>
+        </div>
+    </body>
+</html>

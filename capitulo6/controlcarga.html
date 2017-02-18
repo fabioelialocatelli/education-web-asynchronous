@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Control Carga AJAX</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript" type="text/javascript">
+            var objetoAjax = false;
+
+            function primerPaso() {
+                try {
+                    objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+                } catch (error) {
+                    try {
+                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (error) {
+                        objetoAjax = false;
+                    }
+                }
+                if (!objetoAjax && typeof XMLHttpRequest !== "undefined") {
+                    objetoAjax = new XMLHttpRequest();
+                }
+
+                objetoAjax.onreadystatechange = function () {
+                    if (objetoAjax.readyState === 4)
+                        if (objetoAjax.status === 200) {
+                            var cabecera = document.getElementById("cabecera");
+                            var documentoXML = objetoAjax.responseXML;
+                            var arrayIdentificadores = documentoXML.getElementsByTagName("designation");
+                            for (var i = 0; i < arrayIdentificadores.length; i++) {
+                                cabecera.innerHTML += ("<a href = '#datos' onclick = muestraEstrellas(" + i + ")>" + arrayIdentificadores[i].firstChild.nodeValue + "</a><br>");
+                            }
+                        } else
+                            alert("Algo a fallado: " + objetoAjax.status);
+                };
+                objetoAjax.open("get", "estrellas.xml", true);
+                objetoAjax.send();
+            }
+            function muestraEstrellas(indice) {
+                var datos = document.getElementById("datos");
+                var documentoXML = objetoAjax.responseXML;
+                var arrayIdentificadores = documentoXML.getElementsByTagName("designation");
+                var arrayDistanciasAnosLuz = documentoXML.getElementsByTagName("lightYears");
+                var arrayDiametrosSolares = documentoXML.getElementsByTagName("solarDiameter");
+                datos.innerHTML = "<ul>";
+                datos.innerHTML += "<li>Identificador: " + arrayIdentificadores[indice].firstChild.nodeValue;
+                datos.innerHTML += "<li>Distancia: " + arrayDistanciasAnosLuz[indice].firstChild.nodeValue;
+                datos.innerHTML += "<li>Diametro Solar: " + arrayDiametrosSolares[indice].firstChild.nodeValue;                
+                datos.innerHTML += "</ul>";
+            }
+        </script>
+        <style type="text/css">
+            body {
+                font: sans-serif;
+                background-color: darkblue;
+                margin: 0;
+                padding: 0;
+                color: whitesmoke;
+            }
+            #contenedor {
+                width: 780px;
+                background: goldenrod;
+                margin: auto;
+                border: 1px solid black;
+            }
+            #cabecera {
+                background: burlywood; 
+                padding: 0 10px 0 20px;
+            }
+            #datos{
+                padding: 0 20px;
+                margin: 10px;
+                background: highlight;
+            }
+        </style>
+    </head>
+    <body onload="primerPaso()">
+        <div id="contenedor">
+            <div id="cabecera">
+                <h1>Listado de estrellas clasicas.</h1>
+            </div>
+            <div id="datos">
+            </div>
+        </div>
+    </body>
+</html>
+
+

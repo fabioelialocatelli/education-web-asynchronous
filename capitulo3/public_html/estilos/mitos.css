@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/12/2016, 5:53:28 PM
+    Author     : Fabio Elia Locatelli
+*/
+body{
+    background-image: URL("../fondos/marbre.jpg");
+    background-repeat: repeat;
+    margin-left: 0.5in;
+    margin-right: 0.5in;
+}
+cite {
+    background: white;
+    color: blue;
+    font-weight: bold;
+}
+p {
+    font-size: 11pt;
+    font-weight: bold;
+    color: black;
+    text-align: justify;
+}
+h1.rojo{
+    background: black;
+    font-size: 20pt;
+    font-weight: bold;
+    color: red;
+}
+p.rojo{
+    font-size: 11pt;
+    font-weight: bold;
+    color: red;
+}
+p.verde{
+    font-size: 11pt;
+    font-weight: bold;
+    color: green;
+}
+p.azul{
+    font-size: 11pt;
+    font-weight: bold;
+    color: blue;
+}

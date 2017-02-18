@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Procesar XML</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="JavaScript" type="text/javascript">
+
+            var objetoAjax = false;
+            function muestraContenido() {
+                if (objetoAjax.readyState === 4)
+                    if (objetoAjax.status === 200) {
+                        var elista = document.getElementById("lista");
+                        var documentoxml = objetoAjax.responseXML;
+                        var obCod = documentoxml.getElementsByTagName("designation");
+                        for (var i = 0; i < obCod.length; i++) {
+                            var noEsta = true;
+                            for (var j = 0; j < elista.length; j++)
+                                if (elista.options[j].text === obCod[i].firstChild.nodeValue)
+                                    noEsta = false;
+                            if (noEsta) {
+                                elista.length++;
+                                elista.options[elista.length - 1].value = obCod[i].firstChild.nodeValue;
+                                elista.options[elista.length - 1].text = obCod[i].firstChild.nodeValue;
+                            }
+                        }
+                    } else
+                        alert("Error: " + objetoAjax.status);
+            }
+
+            function primerPaso() {
+                try {
+                    objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+                } catch (e) {
+                    try {
+                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (e) {
+                        objetoAjax = false;
+                    }
+                }
+                if (!objetoAjax && typeof XMLHttpRequest !== "undefined") {
+                    objetoAjax = new XMLHttpRequest();
+                }
+                objetoAjax.onreadystatechange = muestraContenido;
+                objetoAjax.open("GET", "estrellas.xml", true);
+                objetoAjax.send();
+            }
+            function muestraEstrellas() {
+                var elista = document.getElementById("lista");
+                var capa = document.getElementById("capa");
+                var documentoxml = objetoAjax.responseXML;
+                var objetoIdentificador = documentoxml.getElementsByTagName("designation");
+                var objetoNombre = documentoxml.getElementsByTagName("denomination");
+                capa.innerHTML = "";
+                for (var i = 0; i < objetoIdentificador.length; i++) {
+                    if (objetoIdentificador[i].firstChild.nodeValue === elista.value) {
+                        capa.innerHTML += ("<b>Identificador: </b>" + objetoIdentificador[i].firstChild.nodeValue + "<b> Nombre: </b>" + objetoNombre[i].firstChild.nodeValue + "<br>");
+                    }
+                }
+            }
+            //–->
+        </script>
+        <style type="text/css">
+            <!--
+            #capa {
+                position:absolute;
+                width:350px;
+                height:50px;
+                z-index:1;
+                left: 153px;
+                top: 31px;
+                background-color: #66FFFF;
+            }
+            -->
+        </style>
+    </head>
+    <body onload="primerPaso()">
+        <select name="lista" id="lista" onchange="muestraEstrellas()">
+        </select>
+        <div id="capa"></div>
+    </body>
+</html>

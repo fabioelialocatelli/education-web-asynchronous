@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Estrellas AJAX</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {                
+                font-family: sans-serif;
+            }
+            #capaContenedor {
+                background-color: darkblue;
+                color: blanchedalmond;
+                border: 1px solid blanchedalmond;
+            }
+        </style>
+        <script language="javascript" type="text/javascript">
+        var objetoAjax = false;
+
+        function objetoAJAX(){
+            try{
+		objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+            }catch (error){
+		try{
+			objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+		} catch(error){
+			objetoAjax = false;
+		} 
+            }
+            if(!objetoAjax && typeof XMLHttpRequest !== "undefined"){
+		objetoAjax = new XMLHttpRequest();
+            }
+            objetoAjax.onreadystatechange = function(){
+                if(objetoAjax.readyState === 4)
+		if (objetoAjax.status === 200){
+                    document.getElementById("busqueda").value = "Identificador HIP";
+                    document.getElementById("busqueda").select();
+		}
+		else {
+                    alert("Error: " + objetoAjax.status);
+                }                    
+            };
+            objetoAjax.open("get", "estrellas.xml", true);
+            objetoAjax.send();
+        }
+        
+        function muestraEstrellas(){
+            var busqueda = document.getElementById("busqueda");
+            var identificadorHIP = busqueda.value;            
+            var capaContenedor = document.getElementById("capaContenedor");
+            
+            var documentoXML = objetoAjax.responseXML;
+            var identificadorEstrella = documentoXML.getElementsByTagName("identifierHIP");
+            var distanciaEstrella = documentoXML.getElementsByTagName("lightYears");
+            var anoSolar = documentoXML.getElementsByTagName("gregorianYear");
+            
+            capaContenedor.innerHTML = "<h3>" + identificadorHIP + "</h3>";
+            var estrellaEncontrada = false;
+            
+            for (var i = 0; i < identificadorEstrella.length; i++) {
+		if (identificadorEstrella[i].firstChild.nodeValue === identificadorHIP){
+                    estrellaEncontrada = true;
+                    capaContenedor.innerHTML+="<b>Identificador HID Estrella:</b> "+identificadorEstrella[i].firstChild.nodeValue;
+                    capaContenedor.innerHTML+=" - <b>Distancia:</b> "+ distanciaEstrella[i].firstChild.nodeValue;
+                    capaContenedor.innerHTML+=" - <b>Duracion Año:</b> " + anoSolar[i].firstChild.nodeValue + "<br>";
+		}
+            }
+            if (!estrellaEncontrada){
+                capaContenedor.innerHTML+="<b>Estrella no encontrada...</b> ";
+            }
+        }
+        </script>
+    </head>
+    <body onload="objetoAJAX()">
+        <input type="text" name="busqueda" id="busqueda">
+        <input type="button" name="botonBusqueda" id="botonBusqueda" value="Mostrar Estrellas" onclick="muestraEstrellas()">
+        <div id="capaContenedor">Estrellas</div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Cambiando Capas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript" type="text/javascript">
+        function cambiaCapa(){
+                var primeraCapa = document.getElementById("capa1");
+                var segundaCapa = document.getElementById("capa2");
+                var aux = primeraCapa.innerHTML;
+                primeraCapa.innerHTML = segundaCapa.innerHTML;
+                segundaCapa.innerHTML = aux;
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" name="button" id="button" value="Cambiar Datos" onclick="cambiaCapa()" />
+        <div id="capa1">Primera Capa</div>
+        <div id="capa2">Segunda Capa</div>
+    </body>
+</html>

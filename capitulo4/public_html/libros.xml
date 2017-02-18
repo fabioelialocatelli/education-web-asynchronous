@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<?xml-stylesheet href="estilos/libros.xsl" type="text/xsl"?>
+
+<root>
+    <libreria>
+	<libro>
+            <titulo>La Casa de los Espíritus</titulo>
+            <autor>Isabel Allende</autor>
+            <isbn>Editorial Sudamericana</isbn>
+	</libro>
+        <libro>
+            <titulo>El Símbolo Perdido</titulo>
+            <autor>Dan Brown</autor>
+            <editorial>Planeta</editorial>
+	</libro>
+	<libro>
+            <titulo>Contra el Viento</titulo>
+            <autor>Ángeles Caso</autor>
+            <editorial>Planeta</editorial>
+	</libro>
+	<libro>
+            <titulo>La Mecánica del Corazón</titulo>
+            <autor>Mathias Malzieu</autor>
+            <editorial>Mondadori</editorial>
+	</libro>
+	<libro>
+            <titulo>Invisible</titulo>
+            <autor>Paul Auster</autor>
+            <editorial>Anagrama</editorial>
+	</libro>
+	<libro>
+            <titulo>Providence</titulo>
+            <autor>Juan Francisco Ferré</autor>
+            <editorial>Anagrama</editorial>
+	</libro>
+    </libreria>
+</root>

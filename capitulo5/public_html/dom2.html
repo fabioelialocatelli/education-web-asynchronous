@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DOM</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p id = "uno">Primer paso con DOM</p>
+        <p id = "dos">DOM se entiende fácilmente</p>
+        <p id = "tres">Y es totalmente necesario para trabajar con Ajax</p>
+        
+        <script>
+            var losParrafos = document.getElementsByTagName("p");
+            for(i = 0; i < losParrafos.length; i++){
+                var elParrafo = losParrafos[i];
+                
+                //Proporciona el valor del atributo "id"
+                alert(elParrafo.attributes.getNamedItem("id").nodeValue);
+            }
+        </script>
+    </body>
+</html>
