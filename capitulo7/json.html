@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JSON</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            table { border-collapse: collapse; 
+                    text-align: left; 
+                    width: 100%; }
+            table td, table th { padding: 3px 10px; }
+            table thead th {background: #275420; color:#FFFFFF;
+                            font-size: 15px; font-weight: bold; border-left: 1px solid #C6FFC5; }
+            table tbody td {background: cadetblue; color: #275420; border-left: 1px solid #C6FFC5;
+                            font-size: 12px;font-weight: normal; }
+
+        </style>
+        <script language="javascript" type="text/javascript">
+            var objetoAjax = false;
+            function muestraInformacion() {
+                var capaInformacion = document.getElementById("capaInformacion");
+                if (objetoAjax.readyState === 4)
+                    if (objetoAjax.status === 200) {
+                        var myObject = eval("(" + objetoAjax.responseText + ")");
+                        capaInformacion.innerHTML = crearTabla(myObject);
+                    } else
+                        capaInformacion.innerHTML = "Error: " + objetoAjax.status;
+                else
+                    capaInformacion.innerHTML = "Cargando......";
+            }
+
+            function crearAJAX() {
+                try {
+                    objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+                } catch (e) {
+                    try {
+                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (e) {
+                        objetoAjax = false;
+                    }
+                }
+                if (!objetoAjax && typeof XMLHttpRequest !== "undefined") {
+                    objetoAjax = new XMLHttpRequest();
+                }
+                objetoAjax.onreadystatechange = muestraInformacion;
+                objetoAjax.open("GET", "json.json", true);
+                objetoAjax.send();
+            }
+            function crearTabla(objson) {
+                var tabla = "<TABLE BORDER=1><THEAD><TR><TH>NOMBRE</TH><TH>IDENTIFICADOR</TH><TH>DIAMETRO</TH><TH>LUMINOSIDAD ABSOLUTA</TH><TH>LUMINOSIDAD BOLOMETRICA</TH></TR></THEAD><TBODY>";
+                for (i = 0; i < objson.Estrellas.length; i++) {
+                    tabla += "<TR><TD>" + objson.Estrellas[i].denomination + "</TD>";
+                    tabla += "<TD>" + objson.Estrellas[i].designation + "</TD>";
+                    tabla += "<TD>" + objson.Estrellas[i].solarDiameter + "</TD>";
+                    tabla += "<TD>" + objson.Estrellas[i].absoluteLuminosity + "</TD>";
+                    tabla += "<TD>" + objson.Estrellas[i].bolometricLuminosity + "</TD></TR>";
+                }
+                tabla += "</TBODY></TABLE>";
+                return tabla;
+            }
+        </script>
+    </head>
+    <body  onload="crearAJAX()">
+        <div id="capaInformacion"></div>
+    </body>
+</html>

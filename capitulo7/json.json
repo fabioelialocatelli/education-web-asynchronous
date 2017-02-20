@@ -1,0 +1,60 @@
+{
+    "Estrellas": [
+        {
+            "denomination": "Altair",
+            "designation": "α Aquilae",
+            "solarDiameter": 1.75,
+            "absoluteLuminosity": 11.27,
+            "bolometricLuminosity": "12.24"
+        },
+        {
+            "denomination": "Sirius",
+            "designation": "α Canis Majoris",
+            "solarDiameter": 1.96,
+            "absoluteLuminosity": 22.69,
+            "bolometricLuminosity": "29.92"
+        },
+        {
+            "denomination": "Canopus",
+            "designation": "α Carinae",
+            "solarDiameter": 72.6,
+            "absoluteLuminosity": 13931.56,
+            "bolometricLuminosity": "14190.57"
+        },
+        {
+            "denomination": "Deneb",
+            "designation": "α Cygni",
+            "solarDiameter": 94.35,
+            "absoluteLuminosity": 50582.46,
+            "bolometricLuminosity": "65463.61"
+        },
+        {
+            "denomination": "Thuban",
+            "designation": "α Draconis",
+            "solarDiameter": 6.36,
+            "absoluteLuminosity": 255.85,
+            "bolometricLuminosity": "349.94"
+        },
+        {
+            "denomination": "Regulus",
+            "designation": "α Leonis",
+            "solarDiameter": 3.47,
+            "absoluteLuminosity": 145.88,
+            "bolometricLuminosity": "363.07"
+        },
+        {
+            "denomination": "Vega",
+            "designation": "α Lyrae",
+            "solarDiameter": 2.84,
+            "absoluteLuminosity": 50.58,
+            "bolometricLuminosity": "69.82"
+        },
+        {
+            "denomination": "Fomalhaut",
+            "designation": "α Piscis Austrini",
+            "solarDiameter": 1.91,
+            "absoluteLuminosity": 17.53,
+            "bolometricLuminosity": "20.7"
+        }
+    ]  
+}
