@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Distancia Estrellas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="json2.js"></script>
+        <script type="text/javascript" src="js1.js"></script>
+        <style type="text/css"> 
+            * {
+                font-family: sans-serif;
+            }
+            #barra {
+                float: left;
+                width: 12em;
+                background: cadetblue; 
+                color: blanchedalmond; 
+                font-size: 1em;
+                font-weight: normal; 
+                padding: 0.25em;
+            }
+            body  {
+                font: sans-serif;
+                background: wheat;
+            }            
+            table { 
+                float: right;
+                border-collapse: collapse; 
+                text-align: left; 
+            }
+            table td, table th { 
+                padding: 0.25em; 
+                border: 1px solid blanchedalmond; 
+            }
+            table thead th {
+                background: cadetblue;
+                color: blanchedalmond;                            
+                font-size: 1.2em; 
+                font-weight: bold; 
+            }
+            table tbody td {
+                background: cadetblue; 
+                color: blanchedalmond; 
+                font-size: 1em;
+                font-weight: normal; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id="barra">
+            <h3>Luminosidad Absoluta:</h3>
+            <input type="text" name="luminosidadAbsoluta" id="luminosidadAbsoluta" />
+            <input type="button" name="button" id="button" 
+                   value="Ver Informacion" onclick="crearAJAX('capaInformacion', 'luminosidadAbsoluta')"/>
+        </div>
+        <div id="capaInformacion">
+        </div>
+    </body>
+</html>
