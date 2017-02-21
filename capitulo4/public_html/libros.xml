@@ -8,35 +8,35 @@ and open the template in the editor.
 
 <root>
     <libreria>
-	<libro>
+        <libro>
             <titulo>La Casa de los Espíritus</titulo>
             <autor>Isabel Allende</autor>
             <isbn>Editorial Sudamericana</isbn>
-	</libro>
+        </libro>
         <libro>
             <titulo>El Símbolo Perdido</titulo>
             <autor>Dan Brown</autor>
             <editorial>Planeta</editorial>
-	</libro>
-	<libro>
+        </libro>
+        <libro>
             <titulo>Contra el Viento</titulo>
             <autor>Ángeles Caso</autor>
             <editorial>Planeta</editorial>
-	</libro>
-	<libro>
+        </libro>
+        <libro>
             <titulo>La Mecánica del Corazón</titulo>
             <autor>Mathias Malzieu</autor>
             <editorial>Mondadori</editorial>
-	</libro>
-	<libro>
+        </libro>
+        <libro>
             <titulo>Invisible</titulo>
             <autor>Paul Auster</autor>
             <editorial>Anagrama</editorial>
-	</libro>
-	<libro>
+        </libro>
+        <libro>
             <titulo>Providence</titulo>
             <autor>Juan Francisco Ferré</autor>
             <editorial>Anagrama</editorial>
-	</libro>
+        </libro>
     </libreria>
 </root>

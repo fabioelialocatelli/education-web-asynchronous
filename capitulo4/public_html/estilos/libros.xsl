@@ -22,11 +22,18 @@
             <body>
                 <font face = "Helvetica" size = "2" color = "blue">
                     <xsl:for-each select = "root/libreria/libro">
-                        <h2>Titulo:</h2><b><i><xsl:value-of select = "titulo"/></i></b>
+                        <h2>Titulo:</h2>
+                        <b>
+                            <i>
+                                <xsl:value-of select = "titulo"/>
+                            </i>
+                        </b>
                         <br/>
-                        <h2>Autor:</h2><xsl:value-of select = "autor"/>
+                        <h2>Autor:</h2>
+                        <xsl:value-of select = "autor"/>
                         <br/>
-                        <h2>Editorial:</h2><xsl:value-of select = "editorial"/>
+                        <h2>Editorial:</h2>
+                        <xsl:value-of select = "editorial"/>
                         <hr></hr>
                     </xsl:for-each>
                 </font>

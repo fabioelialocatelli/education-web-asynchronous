@@ -1,32 +1,34 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Numeros Primos</title>
-    
-    <script language="JavaScript">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Numeros Primos</title>
 
-    function calculo(datoUsuario)
-    {
-        var navegador = parseInt(datoUsuario);
-        var primo = true;
-        for (var i = 2; i <= (navegador - 1); i++){
-            if((navegador % i) == 0) primo = false; //Dependiendo del resto averiguamos si el numero es primo
-        };
-        res = (primo == true) ? "es primo." : "no es primo.";
-        return res; //La función devuelve el valor almacenado en res
-    }
+        <script language="JavaScript">
 
-</script>
-</head>
+            function calculo(datoUsuario)
+            {
+                var navegador = parseInt(datoUsuario);
+                var primo = true;
+                for (var i = 2; i <= (navegador - 1); i++) {
+                    if ((navegador % i) == 0)
+                        primo = false; //Dependiendo del resto averiguamos si el numero es primo
+                }
+                ;
+                res = (primo == true) ? "es primo." : "no es primo.";
+                return res; //La función devuelve el valor almacenado en res
+            }
 
-<body>
-    
-<script language="JavaScript">
-    var numero = 0;
-    numero = prompt("Introduzca un numero:", "31");
-    document.write("<h2>El numero que me has dado " + calculo(numero) + "</h2>");
-</script>
+        </script>
+    </head>
 
-</body>
+    <body>
+
+        <script language="JavaScript">
+            var numero = 0;
+            numero = prompt("Introduzca un numero:", "31");
+            document.write("<h2>El numero que me has dado " + calculo(numero) + "</h2>");
+        </script>
+
+    </body>
 </html>

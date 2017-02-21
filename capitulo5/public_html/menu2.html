@@ -20,15 +20,15 @@ and open the template in the editor.
             function borrarParrafos() {
                 var pedidos = document.getElementsByClassName("miParrafo");
                 var numeroPedidos = pedidos.length;
-                
+
                 /*DEPURACION DE ERRORES
-                var parrafoTest = document.createElement("p");
-                var nodoTest = document.createTextNode(numeroPedidos);
-                parrafoTest.appendChild(nodoTest);
-                document.body.appendChild(parrafoTest);
-                */
-                
-                while(numeroPedidos > 0){
+                 var parrafoTest = document.createElement("p");
+                 var nodoTest = document.createTextNode(numeroPedidos);
+                 parrafoTest.appendChild(nodoTest);
+                 document.body.appendChild(parrafoTest);
+                 */
+
+                while (numeroPedidos > 0) {
                     document.body.removeChild(pedidos[0]);
                 }
             }
@@ -51,10 +51,10 @@ and open the template in the editor.
 
     <body>
         <h1>AÑADA SU PEDIDO</h1>
-        
-            <input name="pedido" type="text" id="pedido" size="50" />
-            <input type="button" name="nuevoParrafo" id="nuevoParrafo" value="Añadir Parrafo" onclick="nuevoParrafo()" />
-            <input type="button" name="borrarParrafos" id="borrarParrafos" value="Borrar Parrafos" onclick="borrarParrafos()" />
-        
+
+        <input name="pedido" type="text" id="pedido" size="50" />
+        <input type="button" name="nuevoParrafo" id="nuevoParrafo" value="Añadir Parrafo" onclick="nuevoParrafo()" />
+        <input type="button" name="borrarParrafos" id="borrarParrafos" value="Borrar Parrafos" onclick="borrarParrafos()" />
+
     </body>
 </html>

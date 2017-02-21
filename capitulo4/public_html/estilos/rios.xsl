@@ -20,12 +20,12 @@
                 <title>Rios de Rusia</title>
                 <style>
                     * {
-                        font-family: Helvetica;
-                        font-size: 12pt;
+                    font-family: Helvetica;
+                    font-size: 12pt;
                     }
                     table, th, td {
-                        border: 1px solid black;
-                        padding: 0.25em;
+                    border: 1px solid black;
+                    padding: 0.25em;
                     }
                 </style>
             </head>
@@ -38,16 +38,23 @@
                         <th>Longitud</th>
                         <th>Coordenadas Desembocadura</th>
                     </tr>
-                     <xsl:for-each select = "root/rios/rio">
-                         <tr>
-                             <td><xsl:value-of select = "localName"/></td>
-                             <td><xsl:value-of select = "averageDischarge"/> m3/s</td>
-                             <td><xsl:value-of select = "catchmentBasin"/> km2</td>
-                             <td><xsl:value-of select = "length"/> km</td>
-                             <td><xsl:value-of select = "mouthLocation"/></td>
-                         </tr>
-                     </xsl:for-each>                        
-                 </table>           
+                    <xsl:for-each select = "root/rios/rio">
+                        <tr>
+                            <td>
+                                <xsl:value-of select = "localName"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select = "averageDischarge"/> m3/s</td>
+                            <td>
+                                <xsl:value-of select = "catchmentBasin"/> km2</td>
+                            <td>
+                                <xsl:value-of select = "length"/> km</td>
+                            <td>
+                                <xsl:value-of select = "mouthLocation"/>
+                            </td>
+                        </tr>
+                    </xsl:for-each>                        
+                </table>           
             </body>
         </html>
     </xsl:template>

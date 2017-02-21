@@ -9,11 +9,11 @@ and open the template in the editor.
 */
 
 #estiloexterno {
-	position: absolute;
-	top: 30px;
-	left: 30px;
-	width: 300px;
-	background-color: aquamarine;
-	font-size: 40px;
-        font-family: sans-serif;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 300px;
+    background-color: aquamarine;
+    font-size: 40px;
+    font-family: sans-serif;
 }

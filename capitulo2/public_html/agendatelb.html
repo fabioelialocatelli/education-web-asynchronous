@@ -24,32 +24,32 @@ and open the template in the editor.
             }
         </style>
         <script>
-            function crearMatriz(){
+            function crearMatriz() {
                 var dordogne = new Array('Dordogne', '450', '23957', '483');
                 var ebro = new Array('Ebro', '600', '86100', '950');
                 var garonne = new Array('Garonne', '650', '55000', '647');
                 var drava = new Array('Drava', '670', '4120', '749');
                 var po = new Array('Po', '1540', '71000', '652');
-                
+
                 var rios = new Array(dordogne, ebro, garonne, drava, po);
                 return rios;
             }
-            function procesaDatos(matrizRios){
+            function procesaDatos(matrizRios) {
                 document.write("<table>");
-                
+
                 document.write("<th>Nombre</th>");
                 document.write("<th>Caudal Medio</th>");
                 document.write("<th>Superficie Cuenca</th>");
                 document.write("<th>Longitud</th>");
-                
-                for(i = 0; i < matrizRios.length; i++){
+
+                for (i = 0; i < matrizRios.length; i++) {
                     document.write("<tr>");
-                    for(j = 0; j < matrizRios[i].length; j++){
+                    for (j = 0; j < matrizRios[i].length; j++) {
                         document.write("<td>" + matrizRios[i][j] + " </td>");
                     }
                     document.write("</tr>");
                 }
-                
+
                 document.write("</table>");
             }
         </script>

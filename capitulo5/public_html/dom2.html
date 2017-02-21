@@ -14,12 +14,12 @@ and open the template in the editor.
         <p id = "uno">Primer paso con DOM</p>
         <p id = "dos">DOM se entiende fácilmente</p>
         <p id = "tres">Y es totalmente necesario para trabajar con Ajax</p>
-        
+
         <script>
             var losParrafos = document.getElementsByTagName("p");
-            for(i = 0; i < losParrafos.length; i++){
+            for (i = 0; i < losParrafos.length; i++) {
                 var elParrafo = losParrafos[i];
-                
+
                 //Proporciona el valor del atributo "id"
                 alert(elParrafo.attributes.getNamedItem("id").nodeValue);
             }

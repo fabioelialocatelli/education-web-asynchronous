@@ -22,9 +22,11 @@
             <body>
                 <font face = "Helvetica" size = "2" color = "blue">
                     <h1>Ejemplo XML con Documento XSLT</h1>
-                    <h2>Libro:</h2><xsl:value-of select = "root/libreria/libro/titulo"/>
+                    <h2>Libro:</h2>
+                    <xsl:value-of select = "root/libreria/libro/titulo"/>
                     <br/>
-                    <h2>Autor:</h2><xsl:value-of select = "root/libreria/libro/autor"/>
+                    <h2>Autor:</h2>
+                    <xsl:value-of select = "root/libreria/libro/autor"/>
                 </font>
             </body>
         </html>

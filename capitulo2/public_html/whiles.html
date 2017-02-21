@@ -3,25 +3,25 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edad</title>
-        
+
         <script language="JavaScript">
             function preguntaEdad()
             {
-            var edad = 0;
-            while ((edad < 13) || (edad > 80))
-            {
-                edad = prompt("Introduce tu edad?", "25");
-            }
-            return edad;
+                var edad = 0;
+                while ((edad < 13) || (edad > 80))
+                {
+                    edad = prompt("Introduce tu edad?", "25");
+                }
+                return edad;
             }
         </script>
-    
-</head>
-<body>
-    
-<script language="JavaScript">
-document.write ("<h2>Me has dicho que tienes " + preguntaEdad() + " años</h2>");
-</script>
 
-</body>
+    </head>
+    <body>
+
+        <script language="JavaScript">
+            document.write("<h2>Me has dicho que tienes " + preguntaEdad() + " años</h2>");
+        </script>
+
+    </body>
 </html>

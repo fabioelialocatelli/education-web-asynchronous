@@ -14,25 +14,25 @@ and open the template in the editor.
         <p>Primer paso con DOM</p>
         <p>DOM se entiende fácilmente</p>
         <p>Y es totalmente necesario para trabajar con Ajax</p>
-        
+
         <script>
-        //Obtenemos el elemento raíz de la página
-        var objetoHTML = document.documentElement;
-        //Accedemos al primer nodo hijo que corresponde al head
-        var objetoHead = objetoHTML.firstChild;
-        //Accedemos al último nodo que corresponde al body
-        var objetoBody = objetoHTML.lastChild;
-        //Mostramos el tipo de nodo de cada uno de ellos
-        alert("NodeType HTML: " + objetoHTML.nodeType + "\nNodeType Head: " 
-                + objetoHead.nodeType + "\nNodeType Body: " + objetoBody.nodeType);            
-            
-        //Obtenemos el primer elemento p de body y mostramos su nombre
-        var primerParrafo = objetoBody.childNodes[1];
-        alert("Nombre del nodo: " + primerParrafo.nodeName);
-        //Mostramos el contenido del primer elemento de body
-        alert("Name del hijo del nodo p: " + primerParrafo.childNodes[0].nodeName + 
-                "\nValor del hijo del nodo p: " + primerParrafo.childNodes[0].nodeValue);
+            //Obtenemos el elemento raíz de la página
+            var objetoHTML = document.documentElement;
+            //Accedemos al primer nodo hijo que corresponde al head
+            var objetoHead = objetoHTML.firstChild;
+            //Accedemos al último nodo que corresponde al body
+            var objetoBody = objetoHTML.lastChild;
+            //Mostramos el tipo de nodo de cada uno de ellos
+            alert("NodeType HTML: " + objetoHTML.nodeType + "\nNodeType Head: "
+                    + objetoHead.nodeType + "\nNodeType Body: " + objetoBody.nodeType);
+
+            //Obtenemos el primer elemento p de body y mostramos su nombre
+            var primerParrafo = objetoBody.childNodes[1];
+            alert("Nombre del nodo: " + primerParrafo.nodeName);
+            //Mostramos el contenido del primer elemento de body
+            alert("Name del hijo del nodo p: " + primerParrafo.childNodes[0].nodeName +
+                    "\nValor del hijo del nodo p: " + primerParrafo.childNodes[0].nodeValue);
         </script>
-        
+
     </body>
 </html>

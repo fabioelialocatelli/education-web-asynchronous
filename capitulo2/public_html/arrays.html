@@ -6,31 +6,31 @@
         <script language="JavaScript">
 
             var matriz = new Array();
-            
-            function corte(matriz){
-                document.write("Los rios situados entre las posiciones 1 y 3 ");            
+
+            function corte(matriz) {
+                document.write("Los rios situados entre las posiciones 1 y 3 ");
                 document.write("de la matriz son: " + matriz.slice(1, 4) + "<br><hr>");
             }
-            
-            function ordenarTabla(matriz){
+
+            function ordenarTabla(matriz) {
                 document.write("La tabla ordenada seria: " + matriz.sort());
                 document.write("<br><hr>");
             }
-            
-            function invertirTabla(matriz){
+
+            function invertirTabla(matriz) {
                 document.write("La tabla invertida seria: " + matriz.reverse());
                 document.write("<br><hr>");
-            }  
-            
-            function mostrarPrimero(matriz){
+            }
+
+            function mostrarPrimero(matriz) {
                 document.write("El primer rio es: " + matriz.shift() + "<br><hr>");
             }
-            
-            function mostrarUltimo(matriz){
+
+            function mostrarUltimo(matriz) {
                 document.write("El ultimo rio es: " + matriz.pop() + "<br><hr>");
             }
-            
-            function rellenar(matriz){
+
+            function rellenar(matriz) {
                 matriz[0] = "Duero";
                 matriz[1] = "Ebro";
                 matriz[2] = "Guadiana";
@@ -39,33 +39,33 @@
                 matriz[5] = "Tajo";
                 matriz[6] = "Ter"
             }
-            
-            function mostrar(matriz){
-                for (var i = 0; i < matriz.length; i++){
+
+            function mostrar(matriz) {
+                for (var i = 0; i < matriz.length; i++) {
                     document.write("Nombre del rio " + (i + 1) + ": " + matriz[i] + "<br>");
                 }
                 document.write("<hr>");
             }
-            
+
         </script>
     </head>
     <body>
         <script language="JavaScript">
 
-        rellenar(matriz);
-        mostrar(matriz);
-        
-        //Matriz original
-        ordenarTabla(matriz);
-        corte(matriz);
-        mostrarUltimo(matriz);
-        mostrarPrimero(matriz);
-        
-        //Matriz cortada
-        invertirTabla(matriz);
-        corte(matriz);
-        mostrarUltimo(matriz);
-        mostrarPrimero(matriz);
+            rellenar(matriz);
+            mostrar(matriz);
+
+            //Matriz original
+            ordenarTabla(matriz);
+            corte(matriz);
+            mostrarUltimo(matriz);
+            mostrarPrimero(matriz);
+
+            //Matriz cortada
+            invertirTabla(matriz);
+            corte(matriz);
+            mostrarUltimo(matriz);
+            mostrarPrimero(matriz);
 
         </script>
     </body>
