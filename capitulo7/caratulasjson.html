@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Caratulas JSON</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .caratula {
+                padding: 0.25em;
+                margin: auto;
+                display: table-cell;
+                border: 1px solid wheat;
+            }
+            #capaContenedor {
+                width: 15em;
+                background: wheat;
+                margin: auto;
+                border: 1px solid maroon;
+            }
+            #capaInformacion {
+                padding: 0.25em;
+            }
+            body {
+                font-family: sans-serif; 
+                background-color: aqua;
+            }
+            img {
+                width: 150px;
+                height: 150px;
+            }
+            input {
+                display: block;
+                margin: auto;
+                width: 10em;
+                height: 2em;
+            }
+            table { 
+                margin: auto;
+                border-collapse: collapse; 
+                text-align: left; 
+                border: 1px solid wheat; 
+            }
+           table tbody tr {
+                background: blanchedalmond;
+                color: maroon;
+                font-size: 1em;
+            }
+        </style>
+        <script language="javascript">
+
+            var objetoAjax = false;
+            var objetoCapa;
+            var objetoAño;
+
+            function crearAJAX(capaInformacion, campoAño) {
+                try {
+                    objetoAjax = new ActiveXObject("Msxml12.XMLHTTP");
+                } catch (errorPrimero) {
+                    try {
+                        objetoAjax = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (errorSegundo) {
+                        objetoAjax = false;
+                    }
+                }
+                if (!objetoAjax && typeof XMLHttpRequest !== "undefined") {
+                    objetoAjax = new XMLHttpRequest();
+                }
+                objetoCapa = capaInformacion;
+                objetoAño = campoAño;
+                objetoAjax.onreadystatechange = mostrarInformacion;
+                objetoAjax.open("get", "ejson1.json", true);
+                objetoAjax.send();
+            }
+
+            function mostrarInformacion() {
+                var capaInformacion = document.getElementById(objetoCapa);
+                var campoAño = document.getElementById(objetoAño);
+                if (objetoAjax.readyState === 4)
+                    if (objetoAjax.status === 200) {
+                        var objetoJSON = JSON.parse(objetoAjax.responseText);
+                        capaInformacion.innerHTML = crearTabla(objetoJSON, campoAño);
+                    } else
+                        capaInformacion.innerHTML = "Error: " + objetoAjax.status;
+                else
+                    capaInformacion.innerHTML = "Cargando......";
+            }
+
+            function crearTabla(objetoJSON, campoAño) {
+                var tabla = "<TABLE><TBODY>";
+                for (i = 0; i < objetoJSON.Discos.length; i++) {
+                    var hayDiscos = false;
+                    if (objetoJSON.Discos[i].Año == campoAño.value) {
+                        hayDiscos = true;
+                        tabla += "<TR><TD class='caratula'><img src='caratulasDiscos/" + objetoJSON.Discos[i].Caratula + ".jpg'></TD>";
+                        tabla += "<TR><TD><b>TÍTULO:</b> " + objetoJSON.Discos[i].Titulo + "</TD></TR>";
+                        tabla += "<TR><TD><b>GRUPO:</b> " + objetoJSON.Discos[i].Artista + "</TD></TR>";
+                        tabla += "<TR><TD><b>GENERO:</b> " + objetoJSON.Discos[i].Genero + "</TD></TR>";
+                    }
+                }
+                if(!hayDiscos){
+                    alert("No hay discos publicados en ese año");
+                }
+                tabla += "</TBODY></TABLE>";
+                return tabla;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="capaContenedor">
+            Año: 
+            <form>
+                <input type="text" name="campoAño" id="campoAño" />
+                <input type="button" name="button" id="button" value="Ver Caratulas" onclick="crearAJAX('capaInformacion', 'campoAño')"/>
+            </form>          
+
+            <div id="capaInformacion">
+            </div>
+        </div>
+    </body>
+</html>
+
