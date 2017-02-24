@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Prototype</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            * {                
+                font-family: sans-serif;
+            }
+            body {
+                background: grey;
+                color: black;
+                
+            }
+            #contenedor {
+                width: 20em;
+                background: whitesmoke;                
+                border: 1px solid black;
+                margin: auto;
+            }
+            #contenido {
+                padding: 2em;
+                background: greenyellow;
+            }
+            #parrafos {               
+                background: wheat;
+                color: cornflowerblue;
+                padding: 0.5em;
+            }
+        </style>
+        <script language="javascript"
+        src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+        <script language="javascript">
+
+            function identificacionFiscal(dni) {
+                var capa = $("respuesta");
+                numerosDNI = dni.substr(0, dni.length - 1);
+                literalesDNI = dni.substr(dni.length - 1, 1);
+                numerosDNI = numerosDNI % 23;
+                caracteresDNI = 'TRWAGMYFPDXBNJZSQVHLCKET';
+                caracteresDNI = caracteresDNI.substring(numerosDNI, numerosDNI + 1);
+                if (caracteresDNI !== literalesDNI.toUpperCase())
+                    capa.innerHTML = 'DNI ERRONEO';
+                else
+                    capa.innerHTML = 'DNI CORRECTO';
+            }
+
+            function muestraContenido() {
+                identificacionFiscal($F("dni"));
+                var capa = $("respuesta");
+                var numeroParrafos = $$("p");
+                capa.innerHTML += "<br>Número de párrafos: " + numeroParrafos.length;
+                numeroParrafos = $$("#parrafos p");
+                capa.innerHTML += "<br>Número de párrafos de capa: " + numeroParrafos.length;
+                var arrayOpciones = $A($("lista"));
+                capa.innerHTML += "<br>Options: " + arrayOpciones.length;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="contenido">
+                <h3>Formulario</h3>
+                <p>DNI: <input type="text" name="dni" id="dni"  /></p>
+                <p>
+                    <input type="button" name="boton" id="boton" value="Validar" onclick="muestraContenido()" />
+                </p>
+                <div id="respuesta"></div>
+                <div id="parrafos">
+                    <p>Estamos probando las caracteristicas de la librería prototype</p>
+                    <p>En este caso los párrafos son para la función $$</p>
+                    <select id="lista">
+                        <option value="1">Primero</option>
+                        <option value="2">Segundo</option>
+                        <option value="3">Tercero</option>
+                        <option value="4">Cuarto</option>
+                        <option value="5">Quinto</option>
+                        <option value="5">Sexto</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

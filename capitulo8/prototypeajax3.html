@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Prototype AJAX - III</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript"
+        src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+        <script language="javascript">
+            function comienza() {
+                new Ajax.PeriodicalUpdater('resultado', 'nuevoid2.php',
+                        {
+                            method: 'post',
+                            asynchronous: true,
+                            frequency: 10,
+                            decay: 3,
+                            parameters: 'vid=' + $F('vid') + '&vgrupo=' + $F('vgrupo')
+                        }
+                    );
+            }
+        </script>
+        <style type="text/css"> 
+            body  {
+                font: sans-serif;
+                background: grey;
+            }
+            input{
+                display: block;
+                margin: 0.25em;
+                width: 5em;
+            }
+            #contenedor { 
+                width: 50%;
+                background: wheat;
+                border: 1px solid black;
+                margin: auto;                
+            } 
+            #formulario {
+                background: salmon;
+                padding: 0.5em;
+            }
+            #resultado {
+                background: darkslategrey;
+                color: whitesmoke;
+                margin: 1em;
+            } 
+        </style>
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="formulario">
+                <form method="POST">
+                    <input type="text" name="vid" id="vid" placeholder="ID" />
+                    <input type="text" name="vgrupo"  id="vgrupo" placeholder="Grupo" />
+                    <input type="button" name="button" id="button" value="Avanzar" onclick="comienza()" />
+                </form>
+            </div>
+            <div id="resultado">
+                <h3>Resultado</h3>
+            </div>
+        </div>
+    </body>
+</html>
