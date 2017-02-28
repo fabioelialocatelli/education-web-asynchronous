@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Prototype AJAX - V</title>
+        <title>Prototype AJAX - VI</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script language="javascript"
@@ -71,7 +71,7 @@ and open the template in the editor.
     <body>
         <div class="capaDatos">
             <form id="datos" method="post" action="">
-                <label>Nombre Estrella: <input type="text" id="nombreEstrella" onblur="buscaEstrella();" /></label>
+                <label>Nombre Estrella: <input type="text" id="nombreEstrella" /></label>
 
                 <table id="tabla">
                     <tr>
@@ -93,6 +93,9 @@ and open the template in the editor.
             <p id='noEstrella'>Estrella no Encontrada...
             </p>
         </div>
+        <script>
+            $('nombreEstrella').observe('blur', buscaEstrella);
+        </script>
     </body>
 </html>
 
