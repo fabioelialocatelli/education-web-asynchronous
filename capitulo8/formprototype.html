@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Prototype AJAX - V</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript"
+        src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+        <style type="text/css">
+            body {
+                font: 100% Verdana, Arial, Helvetica, sans-serif;
+                background: #666666;
+                margin: 0;
+                padding: 0;
+                color: #000000;
+            }
+            table {
+                background-color: #3FF;
+                border-style: solid;
+                border-color: #03C;
+                border-width: 3px;
+                margin-top: 2em;
+                color: #090;
+                width:50%;
+            }
+            .capacentral {
+                width: 80%;
+                margin: 0 auto;
+                border: 1px solid #000000;
+                background-color: #CC9;
+                padding: 12px;
+            }
+            .resultado {
+                width: 50%;
+                margin: 2em auto;
+                border: 1px solid #000000;
+                background-color:#ccffcc;
+                text-align: center;
+            }
+            td {
+                width: 15%;
+            }
+        </style>
+        <script language="javascript">
+            
+            function buscaEstrella() {
+                var nombreEstrella = $F('nombreEstrella');
+                new Ajax.Request('buscalibro.php', {
+                    method: 'post',
+                    asynchronous: true,
+                    parameters: 'nombreEstrella=' + nombreEstrella,
+                    onSuccess: mostrarDatos});
+            }
+            
+            function mostrarDatos(objdatos) {
+                var varray = eval("(" + objdatos.responseText + ")");
+                if (varray) {
+                    $('noEstrella').hide();
+                    $('identificador').value = varray[1];
+                    $('diametroSolar').value = varray[2];
+                    $('luminosidadAbsoluta').value = varray[3];
+                    $('luminosidadBolometrica').value = varray[4];
+                } else {
+                   // $('autor').clear();
+                    Field.clear('identificador');
+                    Field.clear('diametroSolar');
+                    Field.clear('luminosidadAbsoluta');
+                    Field.clear('luminosidadBolometrica');
+                    $('noEstrella').show();
+                }
+                $('datos').focusFirstElement();
+            }
+        </script>        
+    </head>
+    <body>
+        <div class="capacentral">
+            <form id="datos" method="post" action="">
+                <label>Nombre Estrella: <input type="text" id="nombreEstrella" onblur="buscaEstrella();" /></label>
+                
+                <table id="tabla">
+                    <tr>
+                        <td><label>Identificador: <input name="autor" type="text" id="identificador" /></label></td>
+                    </tr>
+                    <tr>
+                        <td><label>Diametro Solar: <input name="precio" type="text" id="diametroSolar"/></label></td>
+                    </tr>
+                    <tr>
+                        <td><label>Luminosidad Absoluta: <input name="precio" type="text" id="luminosidadAbsoluta"/></label></td>
+                    </tr>
+                    <tr>
+                        <td><label>Luminosidad Bolometrica: <input name="precio" type="text" id="luminosidadBolometrica"/></label></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class='resultado'>
+            <p id='noEstrella'>Estrella no Encontrada...
+            </p>
+        </div>
+    </body>
+</html>
+
+

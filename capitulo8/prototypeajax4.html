@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Prototype AJAX - IV</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            #capaBayer , #capaFlamsteed, #capaEridanus, #botonesRadio{              
+                background: cornflowerblue;
+                border-spacing: 0.1em;
+                border: 1px lime solid;
+                border-radius: 5px;                
+                margin: 0.35em;
+            }          
+            #botonesRadio{
+                margin: auto;
+                width: 20%;
+            }
+            #capas{
+                width: 20%;
+                margin: auto;
+                padding: 1em;
+            }
+            label{
+                display: block;
+            }
+        </style>
+        <script language="javascript"
+        src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+        <script language="javascript">
+            function muestraDatos(baseDatos, capaDatos, capaOculta1, capaOculta2) {
+                $(capaDatos).show();
+                $(capaOculta1).hide();
+                $(capaOculta2).hide();
+                new Ajax.Updater(capaDatos, 'listado.php', {
+                    method: 'post',
+                    asynchronous: true,
+                    parameters: "database=" + baseDatos});
+            }
+        </script>
+    </head>
+    <body>
+        <form method="post" id="botonesRadio">
+            <label><input type="radio" name="radio" id="radioBayer" value="Estrellas Bayer" onclick="muestraDatos('bayer.stellarParameters', 'capaBayer', 'capaFlamsteed', 'capaEridanus');" /> Estrellas Bayer</label>
+            <label><input type="radio" name="radio" id="radioFlamsteed" value="Estrellas Flamsteed"  onclick="muestraDatos('flamsteed.stellarParameters', 'capaFlamsteed', 'capaBayer', 'capaEridanus');" /> Estrellas Flamsteed</label>
+            <label><input type="radio" name="radio" id="radioEridanus" value="Eridanus"  onclick="muestraDatos('eridanus.river', 'capaEridanus', 'capaBayer', 'capaFlamsteed');" /> Rios Eridanus</label>
+        </form>
+        <div id="capas">
+            <div id="capaBayer">Capa Bayer</div>
+            <div id="capaFlamsteed">Capa Flamsteed</div>
+            <div id="capaEridanus">Capa Eridanus</div>
+        </div>
+    </body>
+</html>
