@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rios>
+    <rio>
+        <countryName>Alemania</countryName>
+        <localName>Danube</localName>
+        <averageDischarge>6500</averageDischarge>
+        <length>2860</length>
+    </rio>
+
+    <rio>
+        <countryName>España</countryName>
+        <localName>Guadiana</localName>
+        <averageDischarge>78</averageDischarge>
+        <length>742</length>
+    </rio>
+
+    <rio>
+        <countryName>Francia</countryName>
+        <localName>Loire</localName>
+        <averageDischarge>931</averageDischarge>
+        <length>1006</length>
+    </rio>
+
+    <rio>
+        <countryName>Italia</countryName>
+        <localName>Tagliamento</localName>
+        <averageDischarge>70</averageDischarge>
+        <length>170</length>
+    </rio>
+
+    <rio>
+        <countryName>España</countryName>
+        <localName>Tajo</localName>
+        <averageDischarge>444</averageDischarge>
+        <length>1007</length>
+    </rio>
+
+    <rio>
+        <countryName>Italia</countryName>
+        <localName>Ticino</localName>
+        <averageDischarge>350</averageDischarge>
+        <length>248</length>
+    </rio>
+</rios>

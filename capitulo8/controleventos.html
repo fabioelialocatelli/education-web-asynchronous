@@ -40,6 +40,13 @@ and open the template in the editor.
         </style>
         <script language="javascript">
 
+            function activaEventos(){
+                if($('evento').checked){
+                    $('nombreEstrella').observe('blur', buscaEstrella);
+                } else {
+                    Event.stopObserving('nombreEstrella', 'blur', buscaEstrella);
+                }
+            }
             function buscaEstrella() {
                 var nombreEstrella = $F('nombreEstrella');
                 new Ajax.Request('buscalibro.php', {
@@ -70,8 +77,8 @@ and open the template in the editor.
     </head>
     <body>
         <div class="capaDatos">
-            <form id="datos" method="post" action="">
-                <label>Nombre Estrella: <input type="text" id="nombreEstrella" /></label>
+            <form id="datos" method="post">
+                <label>Nombre Estrella: <input type="text" id="nombreEstrella" /></label><label> Eventos: <input type="checkbox" id="evento"></label>
 
                 <table id="tabla">
                     <tr>
@@ -86,6 +93,7 @@ and open the template in the editor.
                     <tr>
                         <td><label>Luminosidad Bolometrica: <input name="precio" type="text" id="luminosidadBolometrica"/></label></td>
                     </tr>
+                    
                 </table>
             </form>
         </div>
@@ -94,7 +102,8 @@ and open the template in the editor.
             </p>
         </div>
         <script>
-            $('nombreEstrella').observe('blur', buscaEstrella);
+            //$('nombreEstrella').observe('blur', buscaEstrella);
+            $('evento').observe('click', activaEventos);
         </script>
     </body>
 </html>

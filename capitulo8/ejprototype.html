@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Reloj Prototype</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript"
+        src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+        <style> 
+            #contenedor { 
+                width: 30%;
+                margin: auto;
+            } 
+            #control {
+                width: 30%;
+                background: cornflowerblue;
+                float: left;
+                padding: 0.25em;
+            }
+            #contenido {
+                margin: 1.25em;
+                background: whitesmoke;
+            } 
+            body {
+                font: sans-serif;
+                background: blanchedalmond;
+            }            
+        </style>
+        <script language="javascript">
+            function reloj() {
+                fechaCorriente = new Date();
+                horas = new String(fechaCorriente.getHours());
+                minutos = new String(fechaCorriente.getMinutes());
+                
+                if (horas.length === 1){
+                    horas = "0" + horas;
+                }
+                    
+                
+                if (minutos.length === 1){
+                    minutos = "0" + minutos;
+                }
+                    
+                $('contenido').innerHTML = "<img src='reloj/dg" + horas.substr(0, 1) + ".gif'>" + "<img src='reloj/dg" + horas.substr(1, 2) + ".gif'> ";
+                $('contenido').innerHTML += "<img src='reloj/dg" + minutos.substr(0, 1) + ".gif'>" + "<img src='reloj/dg" + minutos.substr(1, 2) + ".gif'>";
+            }
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div id="contenedor">
+            <div id="control">
+                <p>
+                    <input type="button" value="Horas" onclick="reloj()" />
+                </p>
+            </div>
+            <div id="contenido">                
+            </div>
+        </div>
+    </body>
+</html>

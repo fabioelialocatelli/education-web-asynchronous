@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Rios Prototype</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript"
+        src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+        <style type="text/css">
+            * {
+                font-family: sans-serif;
+            }
+            body {
+                background: blanchedalmond;
+            }
+            #capaContenedor {
+                width: 60%;
+                margin: auto;
+            }
+            #cabecera {
+                background: #00ffff; 
+                padding: 0 10px 0 20px;
+            }
+            #capaRios {
+                padding: 0.35em;
+                background: darkcyan;
+            }
+            #capaPaises {
+                padding: 0.35em;
+                background: dodgerblue;
+            }
+            img{
+                width: 5em;
+                height: 2.5em;
+            }
+        </style>
+        <script language="javascript">
+            function mostrarRios(pais) {
+                $('capaPaises').innerHTML = pais;
+                new Ajax.Request('rios.xml', {onComplete: mostrarRespuesta});
+            }
+
+            function mostrarRespuesta(objetoAJAX) {
+
+                $('capaRios').innerHTML = "";
+                var datosRio = objetoAJAX.responseXML;
+                var pais = $('capaPaises').innerHTML;
+                var paises = datosRio.getElementsByTagName("countryName");
+                var nombre = datosRio.getElementsByTagName("localName");
+                var caudal = datosRio.getElementsByTagName("averageDischarge");
+                var longitud = datosRio.getElementsByTagName("length");
+
+                for (i = 0; i < paises.length; i++) {
+                    if (pais === paises[i].firstChild.nodeValue) {
+
+                        $('capaRios').innerHTML += "Nombre: " + nombre[i].firstChild.nodeValue + "</br>";
+                        $('capaRios').innerHTML += "Longitud: " + longitud[i].firstChild.nodeValue + " Kilometros</br>";
+                        $('capaRios').innerHTML += "Caudal: " + caudal[i].firstChild.nodeValue + " Metros Cubicos / Segundo</br>";
+
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body> 
+        <div id="capaContenedor">
+            <nav id="cabecera">
+                <img alt="Bandera Alemana" src="banderas/Alemania.gif" onclick="mostrarRios('Alemania')" />
+                <img alt="Bandera Española" src="banderas/España.gif" onclick="mostrarRios('España')" />
+                <img alt="Bandera Francesa" src="banderas/Francia.gif" onclick="mostrarRios('Francia')" />
+                <img alt="Bandera Italiana" src="banderas/Italia.gif" onclick="mostrarRios('Italia')" />
+            </nav>
+            <div id="capaRios"></div>
+            <div id="capaPaises"></div>  
+        </div>
+    </body>
+</html>
