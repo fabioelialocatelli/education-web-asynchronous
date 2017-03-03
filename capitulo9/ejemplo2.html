@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JQuery - Ejemplo II</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $('h3').addClass('fondorojo');
+                $('#contenido > ul').addClass('fondoverde');
+                $('img').width('300px');
+                
+                $('ul').after("<a href=#top>Volver</a><br>");
+                $('<a id=top name=top></a>').prependTo("body");
+                
+                $('ul:odd').attr({id:"listados"});
+                $('#listados').attr({"type":"i"});
+                $('#barra1 li').each(function(index){
+                    $(this).text('Nueva Lista ' + index);
+                });
+            });
+        </script>
+        <style type="text/css"> 
+            body  {
+                font: 100% Verdana, Arial, Helvetica, sans-serif;
+                background: #cccccc;
+                margin: 0;
+                padding: 0;
+                color: #000000;
+            }
+            #barra1 {
+                background: #ff9999;
+                margin: 0px;
+                float: left;
+                width: 10em;
+            }
+            #contenido {
+                background: #003333;
+                padding: 15px 10px;
+                color: #FFFFFF;
+                margin-left: 10em;
+            } 
+            #pie {
+                background: #ff9900;
+                color: #FFFFFF;
+                clear: both;
+            } 
+            img {
+                width: 25%;
+                height: 25%;
+            }
+            .fondorojo{
+                background: red;
+            }
+            .fondoverde{
+                background: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="barra1">
+            <ul>
+                <li>Opción 1</li>
+                <li>Opción 2</li>
+                <li>Opción 3</li>
+                <li>Opción 4</li>
+                <li>Opción 5</li>
+            </ul>
+        </div>
+        <div id="contenido">
+            <form>
+                <table>
+                    <tr><th colspan="2">Contacto</th></tr>
+                    <tr><td>Nombre:</td><td><input type="text" size="15"></td></tr>
+                    <tr><td>Email:</td><td><input type="text" size="25"></td></tr>
+                    <tr><td>Población:</td><td><input type="text" size="15"></td></tr>
+                </table>
+            </form>
+            <ul>
+                <li>Aquí sus preferencias 1</li>
+                <li>Aquí sus preferencias 2</li>
+                <li>Aquí sus preferencias 3</li>
+            </ul>
+            <img alt="CSS3" src="graficos/css3.jpg">
+        </div>
+        <div id="pie">
+            <h3>Esta es la capa de pie, para la página ejemplo¡</h3>
+        </div>
+    </body>
+</html>
+

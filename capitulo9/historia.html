@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Historía</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            .parrafo {
+                font-family: sans-serif;
+                font-size: 12px;
+                text-align: justify;
+            }
+            .titulo {
+                font-family: sans-serif;
+                font-size: 24px;
+                font-weight: bold;
+            }
+            .indice {
+                font-family: sans-serif;
+                font-size: 9px;
+                font-weight: bold;
+            }
+        </style>
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $('h3').addClass('titulo');
+                $('p').addClass('parrafo');
+                $('p.parrafo').after("<a href=#top>Volver</a><br>");
+                $("<a id=top></a>").prependTo("body");
+                $('h3').each(function () {
+                    $('#finindice').append($(this).clone());
+                });
+                $('div > h3').addClass("indice");
+                $("<h3>Índice</h3>").prependTo("body");
+            });
+        </script>
+    </head>
+    <body>
+        <div id='finindice'></div>
+        <h3>El  viaje de los Argonautas</h3>
+        <p>Pelias ha usurpado el trono de la ciudad de Yolco a su  sobrino Jasón, y le ha prometido que se lo devolverá una vez que éste le traiga  el Vellocino de Oro. Así es como Jasón enrola a cincuenta héroes en la nave  Argo, navío prodigioso cuyo espolón estaba hecho de madera de la encina  profética del santuario de Dodona y daba aviso a su timonel de los peligros de  la navegación. El Vellocino se encontraba en la región de la Cólquide, en los  dominios del rey Eetes, y estaba custodiado por un dragón que nunca dormía.  Jasón consigue el Vellocino ayudado por la hija del rey, la maga Medea, después  de haber realizado ciertas misiones que parecían imposibles como arar una  parcela de campo sujetando unos bueyes que vomitan fuego por sus fauces, etc.  El regreso de los Argonautas es no menos espectacular y peligroso a través de  varias rutas alternativas. En este conjunto de relatos se reproduce el esquema  arquetípico por el que se encarga a un héroe que lleve a cabo determinadas  tareas con la esperanza de que no regrese de ellas con vida.</p>
+        <h3>Los  Doce Trabajos de Hércules</h3>
+        <p>Atestiguados en las metopas del templo de Olimpia, Heracles  hubo de realizar los Doce Trabajos por orden de Euristeo. Hazañas teóricamente  imposibles y en las que también se buscaba que el esforzado héroe encontrara la  muerte, vemos cómo fue capaz de ejecutarlas todas: debía matar al león de  Nemea, cuya piel pasó a ser parte de la indumentaria del héroe; acabar con la  Hidra de Lerna, monstruo de múltiples cabezas que continuamente se regeneraban;  cazar vivo al jabalí de Erimanto; capturar la cierva de Cerinea, empresa que le  llevó hasta el lejano país de los Hiperbóreos; destruir las aves del lago  Estinfalo, cuyas plumas eran flechas de bronce; limpiar los malolientes establos  del rey Augías; cazar el toro de Creta; domeñar las yeguas de Diomedes,  peligrosas yeguas antropófagas; conseguir el cinturón de la amazona Hipólita;  arrebatar su ganado a Gerión, empresa que -como también la siguiente- le  vincula a nuestras tierras gaditanas; recolectar las manzanas de las  Hespérides; y finalmente atar al perro Cerbero en los dominios subterráneos del  infierno. Todo ello hubo de realizar el esforzado Hércules, emblema del  estoicismo.</p>
+        <h3>Los  Siete contra Tebas</h3>
+        <p>Tebas fue el centro de uno de los mayores ciclos de la  antigua saga mítica de Grecia, desde su legendaria fundación hasta que fue  arrasada por Alejandro Magno. En ella reinó el infausto Edipo. Tras haber  descubierto que es el asesino de su padre y que ha estado cohabitando con su madre,  el viejo Edipo acaba de comprobar que es inútil oponerse al destino, pues  aunque hizo todo para evitarlo, todo ha sucedido según el oráculo. Por eso  ahora, ciego, parte al exilio, y el trono de Tebas queda en poder de su hijo  Eteocles, quien lo deberá ceder al cabo del año a su hermano Polinices.  Transcurrido el primer turno y ante la renuencia de aquél a traspasar el mando,  Polinices solicita ayuda a la vecina Argos para asediar Tebas. Es la guerra  fratricida. En cada una de las siete puertas de la ciudad se planta uno de los  Siete héroes al mando de un grupo de guerreros y, de nuevo, el azar hace que  Eteocles se enfrente a Polinices, hermano contra hermano. Muertos ambos,  Greonte, rey ahora de la ciudad, prohibe dar sepultura al cadáver de Polinices,  a quien se considera un invasor que ha venido contra su patria. Sólo la  valentía de su hermana Antígona desafía la orden del tirano y se atreve a  esparcir un poco de tierra sobre el insepulto cuerpo de Polinices. En la  siguiente generación, los hijos de Siete contra Tebas (los llamados Epígonos)  reemprendieron sus luchas. Es la categorización de los desastres de la ambición  por el poder y las secuelas de la guerra.</p>
+        <h3>El  Juicio de Paris</h3>
+        <p>Celebraban los dioses la boda de la nereida Tetis y Peleo  cuando la diosa Eris (la Discordia) dejó caer al suelo una manzana con la  inscripción: &lt;&lt;Para la más hermosa&gt;&gt;. Tres diosas pretendieron  merecer el galardón, pero al no ser fácil el acuerdo decidieron que fuera el  pastor Paris el que resolviera el caso. Hera le recompensaría con el poder,  Atenea con una especial inteligencia y Afrodita con el amor. El troyano Paris  no dudó y le concedió la manzana a la diosa Afrodita. Cuando Paris encontró a  la hermosa Helena, esposa del rey de Micenas, Menelao, Afrodita hizo que se enamorara  apasionadamente de Paris, quien la raptó y se la llevó a su ciudad. Ésta fue la  causa de la guerra de Troya y explica el partido que cada una de las diosas  tomó por uno u otro bando: Hera y Atenea siempre de parte de los griegos,  Afrodita de parte de los troyanos. Pero este elemental relato simboliza ante  todo la tentación humana: al hombre le atrae alguno de los tres premios que a  Paris le ofrecieron las diosas: la ambición por conseguir el poder (Hera),  alcanzar éxito profesional (Atenea), o plenitud en el amor (Afrodita).</p>
+        <h3>La  guerra de Troya y los viajes de Regreso</h3>
+        <p>Grecia entera había participado en la gran expedición contra  Troya. La hermosa Helena fue pretendida por los principales reyes de Grecia,  por lo que su padre, Tindáreo, les hizo jurar a todos ellos que si algún día  fuera necesario deberían acudir a la llamada de auxilio del que obtuviera la  mano de Helena. Así que, raptada por Paris y conducida a Troya, su marido,  Menelao, congregó a los principales jefes griegos para el largo asedio de la  ciudad. Al cabo de diez años, los griegos acuden a la astucia: fabrican un  descomunal caballo (el Caballo de Troya) en cuyo interior se ha escondido un  selecto grupo de guerreros. El ejército griego embarca en sus naves y finge su retirada tras haber dejado a las  puertas de la ciudad el funesto caballo como ofrenda para Troya. Aunque el  sacerdote Laoconte y la profetisa Casandra presagiaban desgracias si los  troyanos inducían el caballo en la ciudad (&lt;&lt;teme a los griegos, aunque  te ofrezcan regalos&gt;&gt;). Troya sucumbe esa noche a mano de los guerreros  salidos del vientre del caballo de madera. Caída la ciudad, los héroes griegos  emprenden un incierto viaje de regreso. De estas aventuras quizá la más famosa  es la de Odiseo, que anduvo otros diez años vagabundeando hasta volver a ver su  isla de Ítaca. Peor suerte cupo a Agamenón, que encontraría la muerte a manos  de su propia mujer, Clitemestra, cuando estuvo de regreso en su ciudad.</p>
+    </body>
+</html>
