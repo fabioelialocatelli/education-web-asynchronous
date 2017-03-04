@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<significados>
+    <palabra>
+        <nombre>bierzo</nombre>
+        <definicion>
+            <entrada>Lienzo labrado en el Bierzo, territorio de la provincia de León, en España.</entrada>
+        </definicion>
+    </palabra>
+    <palabra>
+        <nombre>botella</nombre>
+        <definicion>
+            <entrada>Vasija de cristal, vidrio, barro cocido u otro material, con el cuello estrecho, que sirve para contener líquidos.</entrada>
+            <entrada>Líquido que cabe en una botella. Botella de vino.</entrada>
+            <entrada>Recipiente cilíndrico, alargado y metálico, que se utiliza para contener gases a presión.</entrada>
+            <entrada>Medida de capacidad para ciertos líquidos, equivalente a cuartillo y medio, o sea a 756,3 ml.</entrada>
+        </definicion>
+    </palabra>
+</significados>

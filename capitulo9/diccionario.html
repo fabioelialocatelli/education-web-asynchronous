@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Diccionario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            .letra {
+                color: dodgerBlue;
+                background-color: wheat;
+                float: left;
+                width: 5em;
+            }
+            #contenido {
+                position: absolute;
+                top: 45px;
+                left: 150px;
+                width: auto;
+                height: auto;
+                padding: 0.5em 1em;
+            }
+            dd, dt{                
+                font-family: sans-serif;
+            }
+            dt{
+                font-weight: bolder;
+                background: navy;
+                color: whitesmoke;                
+            }
+            dd{
+                background: darkcyan;
+                padding: 0.2em;
+            }
+        </style>
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $('#letras > div').addClass('letra');
+                
+                //Get HTML dictionary
+                $('#letra-a a').click(function () {
+                    $('#contenido').load('diccionarioA.html');
+                });
+                
+                //Get JSON Dictionary
+                $('#letra-c a').click(function () {
+                    $.getJSON('diccionarioC.json', function (data) {
+                        $('#contenido').empty();
+                        $('#contenido').append("<dl>");
+                        //Outer Loop
+                        $.each(data, function (indice, entrada) {
+                            var html = "<dt>" + entrada['palabra'] + "</dt>";
+                            //Inner Loop
+                            $.each(entrada['defini'], function (indicelin, linea) {
+                                html += "<dd>" + linea + "</dd>";
+                            });
+                            $('#contenido').append(html);
+                        });
+                        $('#contenido').append("</dl>");
+                    });
+                });
+                
+                //Get XML Dictionary
+                $('#letra-b a').click(function () {
+                    $.get('diccionarioB.xml', function (data) {
+                        $('#contenido').empty();
+                        $('#contenido').append("<dl>");
+                        $(data).find('palabra').each(function () { //Recorremos las palabras
+                            var entrada = $(this);
+                            var html = "<dt>" + entrada.find('nombre').text() + "</dt>";
+                            var definicion = entrada.find('definicion');
+                            definicion.find('entrada').each(function () { //Recorremos las definiciones de cada palabra
+                                html += "<dd>" + $(this).text() + "</dd>";
+                            });
+                            $('#contenido').append(html);
+                        })
+                        $('#contenido').append("</dl>");
+                    });
+                    //return false;
+                });
+                
+                //Get PHP-Generated Dictionary
+                $('#letra-d a').click(function () {
+                    $.post('diccionarioD.php', {'letra': $(this).text()}, function (data) {
+                        $('#contenido').html(data);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="letras">
+            <div id="letra-a">
+                <h3><a href="#">A</a></h3>
+            </div>
+            <div id="letra-b">
+                <h3><a href="#">B</a></h3>
+            </div>
+            <div id="letra-c">
+                <h3><a href="#">C</a></h3>
+            </div>
+            <div id="letra-d">
+                <h3><a href="#">D</a></h3>
+            </div>
+        </div>
+        <div id="contenido"></div>
+    </body>
+</html>
