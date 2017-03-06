@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<barcos>
+    <esp>
+        <id>01</id>
+        <nombre>Santísima Trinidad</nombre>
+        <eslora>189,6 pies</eslora>
+        <manga>58 pies</manga>
+        <tonelaje>2.153 Toneladas</tonelaje>
+        <cañones>126 cañones</cañones>
+        <texto>En Trafalgar fue duramente castigado, se le apresó y le intentaron conducir a Gibraltar, 
+            pero les sorprendió un temporal y el barco se hundió a la altura de la punta Caraminal. 
+            Murieron 205 de sus tripulantes y 108 fueron heridos.</texto>
+    </esp>
+    <esp>
+        <id>02</id>
+        <nombre>Monarca</nombre>
+        <eslora>190 pies</eslora>
+        <manga>50 pies</manga>
+        <tonelaje>1.640 Toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar era dirigido por D. Teodoro Argumosa. Tuvo 100 muertos y 150 heridos.
+            Se hundió en la playa de San Lucar a causa del temporal que siguió al combate. </texto>
+    </esp>
+    <esp>
+        <id>03</id>
+        <nombre>Santa Ana</nombre>
+        <eslora>213,4 pies</eslora>
+        <manga>58 pies</manga>
+        <tonelaje>2.142 Toneladas</tonelaje>
+        <cañones>112 cañones</cañones>
+        <texto>En Trafalgar estuvo al mando del capitán de navío Gardoqui, 
+            con la insignia del teniente general de la Armada Don Ignacio M. de Alava, tuvo 97 muertos y 141 heridos.</texto>
+    </esp>
+    <esp>
+        <id>04</id>
+        <nombre>San Justo</nombre>
+        <eslora>190,6 pies</eslora>
+        <manga>52,6 pies</manga>
+        <tonelaje>1.672 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>Al mando de Miguel Gastón combatiá en Trafalgar, 5 de sus tripulantes murieron y 12 fueron heridos.</texto>
+    </esp>
+    <esp>
+        <id>05</id>
+        <nombre>San Leandro</nombre>
+        <eslora>190 pies</eslora>
+        <manga>52 pies</manga>
+        <tonelaje>1.640 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>En trafalgar estuvo al mando de Don José Quevedo, 45 de sus tripulantes murieron y 67 fueron heridos.</texto>
+    </esp>
+    <esp>
+        <id>06</id>
+        <nombre>San Agustín</nombre>
+        <eslora>190 pies</eslora>
+        <manga>52 pies</manga>
+        <tonelaje>1.640 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar estaba dirigido por Don Felipe Jado y fue el primer navío español que disparó
+            contra los ingleses. Tuvo 180 muertos y 200 heridos.Se fue a pique. </texto>
+    </esp>
+    <esp>
+        <id>07</id>
+        <nombre>San Juan Nepomuceno</nombre>
+        <eslora>196 pies</eslora>
+        <manga>51,4 pies</manga>
+        <tonelaje>1.600 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>Al mando del brigadier Cosme Damián Churruca, combatió destacadamente en Trafalgar, 
+            resultando apresado por los británicos. En el combate tuvo 100 muertos y 150 heridos.</texto>
+    </esp>
+    <esp>
+        <id>08</id>
+        <nombre>Príncipe de Asturias</nombre>
+        <eslora>210 pies</eslora>
+        <manga>58 pies</manga>
+        <tonelaje>2.108 toneladas</tonelaje>
+        <cañones>112 cañones</cañones>
+        <texto>En trafalgar llevaba la insignia del teniente general Federico Gravina y 
+            por comandante a don Rafael Hore, 50 tripulantes murieron y 110 fueron heridos. 
+        </texto>
+    </esp>
+    <esp>
+        <id>09</id>
+        <nombre>San Ildefonso</nombre>
+        <eslora>190 pies</eslora>
+        <manga>52 pies</manga>
+        <tonelaje>1.640 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar su capitán era Don José Vargas, 34 tripulantes fueron muertos y 126 heridos. 
+            El navío fue capturado y llevado a Gibraltar donde permaneció hasta 1806.</texto>
+    </esp>
+    <esp>
+        <id>10</id>
+        <nombre>Argonauta</nombre>
+        <eslora>190 pies</eslora>
+        <manga>52 pies</manga>
+        <tonelaje>1.640 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar su capitán era Don Antonio Pareja. Tuvo 60 muertos y 148 heridos. El navío se fue a pique. </texto>
+    </esp>
+    <esp>
+        <id>10</id>
+        <nombre>Montañes</nombre>
+        <eslora>190 pies</eslora>
+        <manga>51 pies</manga>
+        <tonelaje>1.500 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar pierde a sus dos comandantes, don Francisco Alsedo y don Antonio Castaños, 
+            pero el teniente de navóo don Alejo Gutiérrez de Rubalcava logró llevarlo a la bahía de Cádiz,
+            20 tripulantes murieron y 29 fueron heridos. </texto>
+    </esp>
+    <esp>
+        <id>11</id>
+        <nombre>Bahama</nombre>
+        <eslora>192,2 pies</eslora>
+        <manga>51 pies</manga>
+        <tonelaje>1.676 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>En 1805 vuelve a ser mandado por Alcalá Galiano, durante el combate de Trafalgar el navío
+            es capturado por los ingleses. Tuvo 75 muertos y 69 heridos. En 1809 es utilizado como barco-prisión.</texto>
+    </esp>
+    <esp>
+        <id>12</id>
+        <nombre>Rayo</nombre>
+        <eslora>190 pies</eslora>
+        <manga>52 pies</manga>
+        <tonelaje>1.640 toneladas</tonelaje>
+        <cañones>80 cañones</cañones>
+        <texto>Transformado después a 100 cañones, participa en Trafalgar bajo el mando de D.Enrique Macdonel, 
+            4 tripulantes murieron y 14 fueron heridos. </texto>
+    </esp>
+    <esp>
+        <id>13</id>
+        <nombre>Neptuno</nombre>
+        <eslora>190 pies</eslora>
+        <manga>52 pies</manga>
+        <tonelaje>1.640 toneladas</tonelaje>
+        <cañones>80 cañones</cañones>
+        <texto>El mismo Don Cayetano Valdés lo dirige en Trafalgar, 42 tripulantes murieron y 47 fueron heridos. 
+            Se hundió en la costa del Puerto de Santa María, a causa del temporal que siguió al combate. </texto>
+    </esp>
+    <esp>
+        <id>14</id>
+        <nombre>San Francisco de Asis</nombre>
+        <eslora>190 pies</eslora>
+        <manga>52 pies</manga>
+        <tonelaje>1.640 toneladas</tonelaje>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por Don Luís Flores. Tuvo 5 muertos y 12 heridos. 
+            Se hunde en la costa del Puerto de Santa María, a causa del temporal que sigue al combate. </texto>
+    </esp>
+    <gbr>
+        <id>01</id>
+        <nombre>Victory</nombre>
+        <cañones>100 cañones</cañones>
+        <texto>En 1805 participa en el combate de Trafalgar donde sufre graves daños, 
+            mueren 57 miembros de su tripulación y 103 son heridos. 
+            Es remolcado a Gibraltar donde se le hacen unas reparaciones temporales y es trasladado a Portsmouth. 
+            En 1806 se empieza su reconstrucción en el muelle donde fué construido. 
+        </texto>
+    </gbr>
+    <gbr>
+        <id>02</id>
+        <nombre>Temenayre</nombre>
+        <cañones>98 cañones</cañones>
+        <texto>En Trafalgar está bajo el mando de Eliab Harvey, mueren 47 miembros de su tripulación y 76 son heridos.</texto>
+    </gbr>
+    <gbr>
+        <id>03</id>
+        <nombre>Neptune</nombre>
+        <cañones>98 cañones</cañones>
+        <texto>En trafalgar es mandado por Thomas Francis Fremantle, murieron 10 miembros de su tripulación y 
+            34 fueron heridos.</texto>
+    </gbr>
+    <gbr>
+        <id>04</id>
+        <nombre>Leviathan</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar está bajo el mando del Capitán Henry Willian tuvo cuatro muertos y 22 heridos.</texto>
+    </gbr>
+    <gbr>
+        <id>05</id>
+        <nombre>Britannia</nombre>
+        <cañones>100 cañones</cañones>
+        <texto>En Trafalgar es dirigido por el Capitán Charles Bullen. 
+            Mueren 10 miembros de su tripulación y 42 son heridos. 
+            Cambia de nombre en 1812 por el de St. George y en 1819 por el de Barfleur. </texto>
+    </gbr>
+    <gbr>
+        <id>06</id>
+        <nombre>Conqueror</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar su capitñn fue Israel Pellew. 
+            3 miembros de su tripulación murieron y 9 fueron heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>07</id>
+        <nombre>Africa</nombre>
+        <cañones>64 cañones</cañones>
+        <texto>Mandado por el Capitñn Henry Digby participa en el Combate de Trafalgar; 
+            Mueren 18 miembros de su tripulación y 44 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>08</id>
+        <nombre>Agamenon</nombre>
+        <cañones>64 cañones</cañones>
+        <texto>Participa en el Combate de Trafalgar bajo el mando del Capitán Edward Berry, 
+            2 miembros de su tripulación mueren y 8 son heridos.</texto>
+    </gbr>
+    <gbr>
+        <id>09</id>
+        <nombre>Ajax</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por John Pilford, 2 miembros de su tripulación mueren y 9 son heridos.</texto>
+    </gbr>
+    <gbr>
+        <id>10</id>
+        <nombre>Orion</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitñn Edward Codrington, 
+            1 miembro de su tripulación muere y 23 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>11</id>
+        <nombre>Minotaur</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es dirigido por el Capitñn Charles John Moore Mansfield, 
+            3 miembros de su tripulación mueren y 22 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>12</id>
+        <nombre>Spartiate</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Francis Laforey, 
+            3 miembros de su tripulación son muertos y 20 heridos.</texto>
+    </gbr>
+    <gbr>
+        <id>13</id>
+        <nombre>Royal Sovereing</nombre>
+        <cañones>100 cañones</cañones>
+        <texto>En Trafalgar lleva la bandera del Vice-admirante Cuthbert Collingwood y su capitán
+            es Edward Rotheram; 47 miembros de su tripulación murieron y 94 fueron heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>14</id>
+        <nombre>Belleisle</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán William Hargood, 
+            33 miembros de su tripulación mueren y 93 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>15</id>
+        <nombre>Mars</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En trafalgar es mandado por el Capitán George Duff, 
+            29 miembros de su tripulación murieron y 69 fueron heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>16</id>
+        <nombre>Tonnant</nombre>
+        <cañones>80 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Charles Tyles, 
+            26 miembros de su tripulación murieron y 50 fueron heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>17</id>
+        <nombre>Bellerophon</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandada por el Capitán John Cooke, 27 miembros de su tripulación mueren y 123 son heridos. 
+            En 1815 Napoleón escapa desde Waterloo pero es capturado y conducido al navóo 
+            donde es recibido a bordo por una guardia de honor. 
+        </texto>
+    </gbr>
+    <gbr>
+        <id>18</id>
+        <nombre>Archilles</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar su Capitán era Richard King, 13 miembros de su tripulación murieron y 59 fueron heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>19</id>
+        <nombre>Colossus</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán James Nicoll Morris, 40 miembros de su tripulación mueren 
+            y 160 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>20</id>
+        <nombre>DreadNought</nombre>
+        <cañones>98 cañones</cañones>
+        <texto>En Trafalgar su era dirigido por el capitán John Conn, 7 hombres de su tripulación murieron 
+            y 26 fueron heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>21</id>
+        <nombre>Polyphemus</nombre>
+        <cañones>64 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Robert Redmill, 2 hombres de su tripulación mueren y 4 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>22</id>
+        <nombre>Revenge</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el capitán Robert Moorsom, 28 hombres de su tripulación mueren y 51 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>23</id>
+        <nombre>Swiftsure</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán William Gordon Rutherford, 9 hombres de su tripulación mueren y 8 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>24</id>
+        <nombre>Defiance</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Philip Charles Durham, 17 miembros de su tripulación mueren y 53 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>25</id>
+        <nombre>Thunderer</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por John Stockham, 4 miembros de su tripulación mueren y 12 son heridos.</texto>
+    </gbr>
+    <gbr>
+        <id>26</id>
+        <nombre>Defence</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán George Hope, 7 hombres de su tripulación mueren y 29 son heridos. </texto>
+    </gbr>
+    <gbr>
+        <id>27</id>
+        <nombre>Prince</nombre>
+        <cañones>98 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Richard Grindall, no sufre ninguna baja en 
+            su tripulación durante el combate. </texto>
+    </gbr>
+    <fra>
+        <id>01 </id>
+        <nombre>Pluton</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>Su Capitán en Trafalgar fue Monsieur Cosmao.</texto>
+    </fra>
+    <fra>
+        <id>02 </id>
+        <nombre>Fougueux</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Mr. Boudouin. 
+            Se fue a pique durante el combate.</texto>
+    </fra>
+    <fra>
+        <id>03 </id>
+        <nombre>Indomptable</nombre>
+        <cañones>80 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Mr. Hubert. 
+            Se hunde a causa del temporal que hay días después del combate.</texto>
+    </fra>
+    <fra>
+        <id>04 </id>
+        <nombre>Intrepide</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>Mandado en Trafalgar por el Capitán Mr. Infernet. 
+            Es apresado por los ingleses.</texto>
+    </fra>
+    <fra>
+        <id>05 </id>
+        <nombre>Redoutable</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>Mandado en Trafalgar por el Capitán De Lucas. Se hundió durante el combate.</texto>
+    </fra>
+    <fra>
+        <id>06 </id>
+        <nombre>Neptune</nombre>
+        <cañones>84 cañones</cañones>
+        <texto>Mandado en Trafalgar por el Capitán Mr. Maistral. 
+            Es apresado el 14 de junio de 1808 en Cádiz, por los españoles.</texto>
+    </fra>
+    <fra>
+        <id>07 </id>
+        <nombre>Bucentaure</nombre>
+        <cañones>80 cañones</cañones>
+        <texto>
+            Buque insignia del Almirante Villeneuve, y capitaneado por Mr. Magendie. 
+            Se hunde a causa del temporal que se produce días despuñs del combate.</texto>
+    </fra>
+    <fra>
+        <id>08</id>
+        <nombre>Heros</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar su Capitán es Mr. Poulain. 
+            El 14 de junio de 1808 es apresado por los españoles en Cádiz.  </texto>
+    </fra>
+    <fra>
+        <id>09</id>
+        <nombre>Mont-Blanc</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Villegris. 
+            Es apresado por los ingleses el 3 de noviembre de 1805. </texto>
+    </fra>
+    <fra>
+        <id>10</id>
+        <nombre>Duguay-Trouin</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Touffet. 
+            Es apresado por los ingleses el 3 de noviembre de 1805 y renombrado Implacable. 
+            En 1949, Inglaterra se propone devolverlo a Francia ante la imposibilidad de mantenerlo 
+            junto al Victory, pero Francia se niega a aceptarlo y, ante personalidades de los dos países,
+            es hundido en el Canal de la Mancha.</texto>
+    </fra>
+    <fra>
+        <id>11</id>
+        <nombre>Formidable</nombre>
+        <cañones>80 cañones</cañones>
+        <texto>Mandado en Trafalgar por el Capitán Letellier. 
+            Es apresado por los ingleses el 3 de noviembre de 1805 </texto>
+    </fra>
+    <fra>
+        <id>12</id>
+        <nombre>Scipion</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>Mandado en Trafalgar por Mr. De Berenger. 
+            Es apresado por los ingleses el 3 de Noviembre de 1805. </texto>
+    </fra>
+    <fra>
+        <id>13</id>
+        <nombre>Berwick</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>Mandado en Trafalgar por Mr. Camas. 
+            Se hunde a causa del temporal que sucede, días despuñs, al combate.  </texto>
+    </fra>
+    <fra>
+        <id>14</id>
+        <nombre>Archille</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Mr. Newport. 
+            Explotó durante el combate.  </texto>
+    </fra>
+    <fra>
+        <id>15</id>
+        <nombre>Argonaute</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Epron. 
+            El 14 de junio de 1808 es apresado por los españoles en Cádiz. 
+            Es renombrado Vencedor. </texto>
+    </fra>
+    <fra>
+        <id>16</id>
+        <nombre>Swift-sure</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Villemandrán. 
+            Es apresado por los ingleses. Se le cambio de nombre por IRRESISTIBLE. </texto>
+    </fra>
+    <fra>
+        <id>17</id>
+        <nombre>Algeciras</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es navño insignia del Contra-Almirante Magon y mandado por el Capitán Letuvrneur. </texto>
+    </fra>
+    <fra>
+        <id>18</id>
+        <nombre>Aigle</nombre>
+        <cañones>74 cañones</cañones>
+        <texto>En Trafalgar es mandado por el Capitán Courrñge. 
+            Se hunde a causa del temporal que sucede días después del combate.</texto>
+    </fra>
+</barcos>

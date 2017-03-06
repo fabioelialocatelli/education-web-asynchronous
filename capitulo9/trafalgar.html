@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Batalla de Trafalgar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            #paises {
+                width: auto;
+                height: auto;
+                float: left;
+                background: cadetblue;
+            }
+            #barcos {
+                background: #faf9de;
+                float: left;
+                width: 500px;
+                height: auto;
+                margin-left: 4em;
+            }
+            * {
+                font-family: sans-serif;
+            }
+            a {
+                font-size: 1.75em;
+                text-decoration: none;
+                display: block;
+                color: indianred;
+                padding: 0.25em;
+            }
+            h3, p{
+                padding: 0.25em;
+                margin: 0em;
+            }
+            h3{
+                background-color: maroon;
+                color: blanchedalmond;
+                font-size: 2.25em;                
+            }
+            p{
+                background-color: burlywood;
+                color: whitesmoke;
+                font-size: 1.25em;
+            }
+        </style>
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $('#paises a').click(function () {
+                    var bando = ($(this).attr('id'));
+                    $.get('barcostrafalgar.xml', function (data) {
+                        $('#barcos').empty();
+                        $(data).find(bando).each(function () {
+                            var entrada = $(this);
+                            var html = "<h3>" + entrada.find('nombre').text() + "</h3>";
+                            html += "<p>";
+                            var definicion = entrada.find('texto').text();
+                            html += definicion + "</p>";
+                            $('#barcos').append(html);
+                        })
+                    });
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="paises">
+            <a href="#" id="esp">España</a>
+            <a href="#" id="fra">Francia</a>
+            <a href="#" id="gbr">Inglaterra</a>
+        </div>
+        <div id="barcos">
+        </div>
+    </body>
+</html>

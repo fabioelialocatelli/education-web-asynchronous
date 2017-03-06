@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Caratulas jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            * {
+                font-family: sans-serif;
+            }
+            #caratulas, #album {                
+                background-color: darkcyan;
+                width: auto;
+                margin: 0.75em;               
+            }
+            img {
+                height: 9em;
+                width: 9em;
+                display: block;
+                margin: auto;
+            }
+            table {
+                width: auto;                
+                margin: auto;
+                border: none;
+            }
+            th, td {
+                width: 10em;
+                text-align: left;
+                border-collapse: collapse;
+                padding: 0.3em;
+                background: whitesmoke;
+            }
+        </style>
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            function rellenarTabla(datosJSON) {
+                var tabla = "";
+                $('#album').empty();
+                $.getJSON('ejson1.json', function (data) {
+
+                    tabla = "<table><tr>";
+                    tabla += "<th>CARÁTULA</th>";
+                    tabla += "<th colspan = 2>DATOS ÁLBUM</th>";
+                    tabla += "</tr>";
+
+                    $.each(data, function (indice, entrada) {
+                        if (datosJSON.attr('value') === entrada['Artista']) {
+                            tabla += "<tr>";
+                            tabla += "<td><img src='discos/" + entrada['Caratula'] + ".jpg'></td>";
+                            tabla += "<td >TÍTULO: " + entrada['Titulo'] + "</td>";
+                            tabla += "<td>GENERO: " + entrada['Genero'] + "</td>";
+                            tabla += "</tr>";
+                        }
+                    });
+                    tabla += "</table>";
+
+                    $('#album').append(tabla);
+                });
+            }
+            $(document).ready(function () {
+                $.getJSON('ejson1.json', function (data) {
+                    $('#caratulas').empty();
+
+                    var botonesRadio = new Array();
+                    $.each(data, function (indice, entrada) {
+                        var existe = false;
+                        for (i = 0; i < botonesRadio.length; i++) {
+                            if (botonesRadio[i] === entrada['Artista'])
+                                existe = true;
+                        }
+                        if (!existe)
+                            botonesRadio.push(entrada['Artista']);
+                    });
+
+                    var html = "<table><tr>";
+                    for (i = 0; i < botonesRadio.length; i++) {
+                        html += "<td>";
+                        html += "<input type='radio' name='artista' id='artista" + i + "' value='" + botonesRadio[i] + "'/>" + botonesRadio[i];
+                        html += "</td>";
+                    }
+                    html += "</tr></table>";
+
+                    $('#caratulas').append(html);
+                    $("input").click(function () {
+                        rellenarTabla($(this));
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="caratulas">
+        </div>
+        <div id="album">
+        </div>
+    </body>
+</html>

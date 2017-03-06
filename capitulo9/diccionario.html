@@ -41,12 +41,12 @@ and open the template in the editor.
         <script language="javascript" type="text/javascript">
             $(document).ready(function () {
                 $('#letras > div').addClass('letra');
-                
+
                 //Get HTML dictionary
                 $('#letra-a a').click(function () {
                     $('#contenido').load('diccionarioA.html');
                 });
-                
+
                 //Get JSON Dictionary
                 $('#letra-c a').click(function () {
                     $.getJSON('diccionarioC.json', function (data) {
@@ -64,7 +64,7 @@ and open the template in the editor.
                         $('#contenido').append("</dl>");
                     });
                 });
-                
+
                 //Get XML Dictionary
                 $('#letra-b a').click(function () {
                     $.get('diccionarioB.xml', function (data) {
@@ -83,7 +83,7 @@ and open the template in the editor.
                     });
                     //return false;
                 });
-                
+
                 //Get PHP-Generated Dictionary
                 $('#letra-d a').click(function () {
                     $.post('diccionarioD.php', {'letra': $(this).text()}, function (data) {
