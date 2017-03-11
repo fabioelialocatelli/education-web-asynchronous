@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tablas JQuery III</title>
+        <LINK REL=StyleSheet HREF="tablascomplejas.css" TYPE="text/css">
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+
+                var iconoMas = 'iconos/icomas.gif';
+                var iconoMenos = 'iconos/icomenos.gif';
+                var textoMas = 'Expande esta sección';
+                var textoMenos = 'Contrae esta sección';
+
+                $('table tbody').each(function () {
+                    var seccion = $(this);
+
+                    $('<img />').attr('src', iconoMenos)
+                            .attr('alt', textoMenos)
+                            .prependTo(seccion.find('th'))
+                            .addClass('manita')
+
+                            .click(function () {
+                                if (seccion.is('.contraida')) {
+                                    seccion.removeClass('contraida');
+                                    seccion.find('tr:not(:has(th))').fadeIn('slow');
+                                    $(this).attr('src', iconoMenos).attr('alt', textoMenos);
+                                } else {
+                                    seccion.addClass('contraida');
+                                    seccion.find('tr:not(:has(th))').fadeOut('slow');
+                                    $(this).attr('src', iconoMas).attr('alt', textoMas);
+                                }
+                            });
+                });
+
+                //Añadimos las clases definidas mediante CSS
+                $('table tr:not(:has(th)):even').addClass('par');
+                $('table tr:not(:has(th)):odd').addClass('impar');
+                var celdaTecnico = $('table td:nth-child(3)');
+
+                //Se define la capa del mensaje y se añade al cuerpo de la página
+                var capaMensaje = $('<div id="emergente"></div>').appendTo('body');
+
+                //Esta función modifica la posición del mensaje emergente
+                var posicionaEmergente = function (event) {
+                    var posX = event.pageX;
+                    var posY = event.pageY + 20;
+                    capaMensaje.css({top: posY, left: posX});
+                };
+
+                //Función encargada de mostrar el mensaje emergente
+                var verEmergente = function (event) {
+                    var tecnico = $(this).text();
+                    capaMensaje.text("Resalta las referencias del técnico " + tecnico);
+                    capaMensaje.show();
+                    posicionaEmergente(event);
+                };
+
+                //Función encargada de ocultar el mensaje emergente
+                var ocultaEmergente = function () {
+                    capaMensaje.hide();
+                };
+
+                //Definimos las propriedades de la celda tecnico
+                celdaTecnico.addClass('manita');
+                celdaTecnico.hover(verEmergente, ocultaEmergente);
+                celdaTecnico.mousemove(posicionaEmergente);
+
+                celdaTecnico.click(function () {
+                    var numeroTecnico = $(this).text();
+                    celdaTecnico.each(function (index) {
+                        if (numeroTecnico === $(this).text()) {
+                            $(this).addClass('tecnico');
+                        } else
+                        {
+                            $(this).removeClass('tecnico');
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <table width="100%" border="1">
+            <thead>
+                <tr>
+                    <th class="cabeceratabla">Fecha</th>
+                    <th class="cabeceratabla">Problema</th>
+                    <th class="cabeceratabla">Referencia técnico</th>
+                    <th class="cabeceratabla">Garantía</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th colspan="4" class="cabecerafila">2015</th>
+                </tr>
+                <tr>
+                    <td>15 Enero</td>
+                    <td>Problema memorias.</td>
+                    <td>00854</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>10 Enero</td>
+                    <td>Disco duro con errores.</td>
+                    <td>00854</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>5 Enero</td>
+                    <td>Pantalla fundida.</td>
+                    <td>00853</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>5 Febrero</td>
+                    <td>Fuente alimentación estropeada</td>
+                    <td>00785</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>6 Marzo</td>
+                    <td>Problema memorias.</td>
+                    <td>00785</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>10 Abril</td>
+                    <td>Pantalla fundida.</td>
+                    <td>00658</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>4 Enero</td>
+                    <td>Placa base quemada.</td>
+                    <td>00853</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>19 Marzo</td>
+                    <td>Problema memorias.</td>
+                    <td>00785</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>24 Febrero</td>
+                    <td>Disco duro con errores.</td>
+                    <td>00785</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>19 Febrero</td>
+                    <td>Gráfica quemada.</td>
+                    <td>00853</td>
+                    <td>No.</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th colspan="4" class="cabecerafila">2014</th>
+                </tr>
+                <tr>
+                    <td>15 Diciembre</td>
+                    <td>Placa base mojada.</td>
+                    <td>00853</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>8 Enero</td>
+                    <td>Teclado falla.</td>
+                    <td>00853</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>5 Diciembre</td>
+                    <td>Problema memorias.</td>
+                    <td>00655</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>4 Noviembre</td>
+                    <td>Disco duro quemado.</td>
+                    <td>00655</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>23 Enero</td>
+                    <td>Pantalla fundida.</td>
+                    <td>00785</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>28 Marzo</td>
+                    <td>Disco duro con errores.</td>
+                    <td>00854</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>17 Abril</td>
+                    <td>Pantalla problema pixel.</td>
+                    <td>00655</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>21 Mayo</td>
+                    <td>Webcam no drivers.</td>
+                    <td>00785</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>12 Enero</td>
+                    <td>Procesador quemado.</td>
+                    <td>00854</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>17 Junio</td>
+                    <td>Problema memorias.</td>
+                    <td>00785</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>1 Julio</td>
+                    <td>Placa defectuosa.</td>
+                    <td>00785</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>2 Octubre</td>
+                    <td>Placa defectuosa.</td>
+                    <td>00655</td>
+                    <td>Sí.</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th colspan="4" class="cabecerafila">2013</th>
+                </tr>
+                <tr>
+                    <td>5 Marzo</td>
+                    <td>Disco duro con errores.</td>
+                    <td>00655</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>4 Abril</td>
+                    <td>Problema memorias.</td>
+                    <td>00853</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>7 Julio</td>
+                    <td>Placa defectuosa.</td>
+                    <td>00785</td>
+                    <td>Sí.</td>
+                </tr>
+                <tr>
+                    <td>13 Junio</td>
+                    <td>Problema memorias.</td>
+                    <td>00655</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>23 Noviembre</td>
+                    <td>Pantalla fundida.</td>
+                    <td>00785</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>15 Diciembre</td>
+                    <td>Ampliación memoria.</td>
+                    <td>00785</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>18 Enero</td>
+                    <td>Problema memorias.</td>
+                    <td>00854</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>21 Abril</td>
+                    <td>Cambio disco duro.</td>
+                    <td>00655</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>14 Marzo</td>
+                    <td>Instalar antivirus.</td>
+                    <td>00853</td>
+                    <td>No.</td>
+                </tr>
+                <tr>
+                    <td>19 Octubre</td>
+                    <td>Procesador defectuoso.</td>
+                    <td>00655</td>
+                    <td>Sí</td>
+                </tr>
+                <tr>
+                    <td>13 Octubre</td>
+                    <td>Placa base quemada.</td>
+                    <td>00655</td>
+                    <td>No.</td>
+                </tr>
+            <tbody>
+        </table>
+    </body>
+</html>

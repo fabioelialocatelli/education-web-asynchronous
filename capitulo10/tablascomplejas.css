@@ -1,0 +1,36 @@
+* {
+    font-family: sans-serif;
+}
+.cabeceratabla {
+    background-color: #333;
+    color: #FFF;
+    text-align: left;
+}
+.cabecerafila {
+    background-color: #6CF;
+    text-align: left;
+}
+.par {
+    background-color: #e2e2e2;
+    color: #000000;
+    text-align: left;
+}
+.impar {
+    background-color: #c1c1c1;
+    color: #FFF;
+    text-align: left;
+}
+.tecnico {
+    background-color: #FF9;
+    color: #000;
+}
+.manita{
+    cursor: pointer;
+}
+#emergente{
+    position: absolute;
+    z-index: 2;
+    background-color: #CF0;
+    border: 1px;
+    padding: 3px;
+}

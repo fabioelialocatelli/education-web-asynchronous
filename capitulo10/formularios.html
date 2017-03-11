@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Formularios JQuery</title>
+        <style>
+            * {                
+                font-family: Tahoma, Geneva, sans-serif;
+            }
+            .fieldset{
+                position: relative;
+            }
+            .obli-label{
+                font-weight:bold;
+            }
+            .camposclave{
+                color:#000;
+                background:#F63;
+            }
+        </style>
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $('legend').each(function (index) {
+
+                    var obligatorio = ' * ';
+                    var opcional = ' ** ';
+                    var claveObligatoria = $('input.requerido:first').next('span').text();
+                    var claveOpcional = $('input.opcional:first').next('span').text();
+
+                    $('<p></p>').addClass('camposclave')
+                            .append(obligatorio + ' ' + claveObligatoria + '<br>')
+                            .append(opcional + ' ' + claveOpcional + '<br>')
+                            .insertBefore('form');
+                    $('form input').filter('.requerido').next('span').text(obligatorio);
+                    $('form input').filter('.opcional').next('span').text(opcional);
+                    $('legend').wrapInner('<span></span>');
+                });
+
+                //Ocultamos los controles
+                $('input.opcional').next('span').andSelf().hide();
+                $('input.opcional').each(function () {
+
+                    //Preparamos el clic de los checkbox
+                    var entrada = $(this);
+                    var banderaEntrada = $(this).next('span');
+                    entrada.prev('label').find(':checkbox')
+                            .click(function () {
+                                //Si esta activado
+                                if (this.checked) {
+                                    entrada.show();
+                                    entrada.addClass('requerido');
+                                    banderaEntrada.show();
+                                    $(this).parent('label').addClass('obli-label');
+                                } else {
+                                    //Si esta desactivado
+                                    entrada.hide();
+                                    entrada.removeClass('requerido');
+                                    entrada.blur();
+                                    banderaEntrada.hide();
+                                    $(this).parent('label').removeClass('obli-label');
+                                }
+                            });
+                });
+
+                //Cuando se abandona un cuadro de texto, solo cuando tiene la clase requerido
+                $('form input').blur(function () {
+                    var elemento = $(this).parents('li:first');
+                    elemento.removeClass('aviso');
+                    elemento.find('span.error').remove();
+                    if ($(this).hasClass('requerido')) {
+                        if (this.value === '') {
+                            var mensaje = 'Campo requerido';
+                            $('<span></span>').addClass('error')
+                                    .text(mensaje).appendTo(elemento);
+                            elemento.addClass('aviso');
+                        }
+                    }
+                });
+
+                //Función de control antes de enviar el formulario
+                $('form').submit(function () {
+                    //Utilizamos una capa con un id específico como controlador de errores
+                    $('#mensajeenvio').remove();
+                    //Lanzamos los eventos blur de todos los campos requeridos
+                    $(':input.requerido').trigger('blur');
+                    //Recogemos la cantidad de errores producidos
+                    var numErrores = $('.aviso', this).length;
+                    if (numErrores) {
+
+                        //Cuando hay errores los recogemos en un array
+                        var lista = [];
+                        $('.aviso label').each(function () {
+                            lista.push($(this).text());
+                        });
+
+                        //Con el array rellenamos la capa en la que indicamos que errores debe arreglar
+                        $('<div></div>').attr({
+                            'id': 'mensajeenvio',
+                            'class': 'error'
+                        }).insertBefore('#enviar');
+
+                        $('#mensajeenvio').append('Corrija los ' + numErrores + ' errores de los campos<br>');
+                        $('#mensajeenvio').append('&bull; ' + lista.join('<br>&bull; '));
+
+                        //Cancelamos el envío del formulario
+                        return false;
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>Datos</legend>
+                <ol>
+                    <li>
+                        <label for="nombre">Nombre </label>
+                        <input type="text" name="nombre" id="nombre" class="requerido"/><span>Obligatorio</span>
+                    </li>
+                    <li>
+                        <label for="apellidos">Apellidos </label>
+                        <input type="text" name="apellidos" id="apellidos" class="requerido"/><span>Obligatorio</span>
+                    </li>
+                    <li>Hobbies
+                        <ul>
+                            <li>
+                                <label for="h1">
+                                    <input type="checkbox" name="h1" id="h1" />Hobbie 1
+                                </label>
+                                <input type="text" name="veh1" id="veh1" class="opcional"/><span>Opcional</span>
+                            </li>
+                            <li>
+                                <label for="h2">
+                                    <input type="checkbox" name="h2" id="h2" />Hobbie 2
+                                </label>
+                                <input type="text" name="verh2" id="verh2" class="opcional"/><span>Opcional</span>
+                            </li>
+                            <li>
+                                <label for="h3">
+                                    <input type="checkbox" name="h3" id="h3" />Hobbie 3
+                                </label>
+                                <input type="text" name="verh3" id="verh3" class="opcional"/><span>Opcional</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </fieldset>
+            <input type="submit" id="enviar" name="enviar" class='enviar' />
+        </form>
+    </body>
+</html>
