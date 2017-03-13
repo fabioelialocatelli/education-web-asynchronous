@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cesta de la compra</title>
+        <style>
+            *{
+                font-family: sans-serif;
+            }
+            table{
+                border-collapse: collapse;
+                width: 80%;
+            }
+            .resaltap{
+                background-color: wheat;
+            }
+            .resaltai{
+                background-color: whitesmoke;
+            }
+            .cestacss{
+                border: cornflowerblue solid 1px;
+                padding: 2px;
+                margin: 2px;
+            }
+        </style>
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                //Añadimos las clases definidas mediante CSS
+                $('#cesta tbody tr:nth-child(even)').addClass('resaltap');
+                $('#cesta tbody tr:nth-child(odd)').addClass('resaltai');
+
+                //Validación de datos numéricos de los input
+                $('td.cantidad input').keypress(function (event) {
+                    if (event.which && (event.which < 48 || event.which > 57)) {
+                        event.preventDefault();
+                    }
+                });
+
+                //Definimos el evento que detecta el cambio de contenido de los cuadros de texto
+                $('td.cantidad input').change(function () {
+                    var cantidadtotal = 0;
+                    var preciototal = 0;
+
+                    //Para cada fila
+                    $('#cesta tbody tr').each(function () {
+                        //Obtenemos el precio de la fila
+                        var precio = parseFloat($('td.precio', this).text().replace(',', '.'));
+                        precio = isNaN(precio) ? 0 : precio;
+                        //Obtenemos el valor del cuadro y lo sumamos a la cantidad total
+                        var cantidad = parseInt($('td.cantidad input', this).val());
+                        //Calculamos el total del elemento y actualizamos la tabla
+                        var coste = cantidad * precio;
+                        coste = Math.round(coste * 100) / 100;
+                        $('td.total', this).text(coste + ' €');
+                        var textocoste = $('td.total', this).text().replace('.', ',');
+                        $('td.total', this).text(textocoste);
+                        cantidadtotal += cantidad;
+                        preciototal += coste;
+                    });
+
+                    //Actualizamos la celda en la parte del pie de la tabla
+                    $('tr.subtotal td.precio').text(String(cantidadtotal));
+                    preciototal = Math.round(preciototal * 100) / 100;
+                    $('tr.subtotal td.total').text(String(preciototal) + ' €');
+                    var textototal = $('tr.subtotal td.total').text().replace('.', ',');
+                    $('tr.subtotal td.total').text(textototal);
+
+                    //Calculamos el IVA (21% en 2017)
+                    var iva = preciototal * 21 / 100;
+                    iva = Math.round(iva * 100) / 100;
+                    $('tr.iva td.total').text(String(iva) + ' €');
+                    textototal = $('tr.iva td.total').text().replace('.', ',');
+                    $('tr.iva td.total').text(textototal);
+
+                    //Calculamos el total con el IVA
+                    var totalconiva = preciototal + iva;
+                    totalconiva = Math.round(totalconiva * 100) / 100;
+                    $('tr.resultado td.total').text(String(totalconiva) + ' €');
+                    textototal = $('tr.resultado td.total').text().replace('.', ',');
+                    $('tr.resultado td.total').text(textototal);
+                });
+            });
+
+            function pedido() {
+                var pedidoHTML = "";
+                $('#cesta tbody tr').each(function () {
+                    pedidoHTML += $('td.elemento', this).text() + ": ";
+                    pedidoHTML += $('td.total', this).text() + "<br>";
+                });
+                pedidoHTML += "Subtotal: " + $('tr.subtotal td.total').text() + "<br>";
+                pedidoHTML += "Iva: " + $('tr.iva td.total').text() + "<br>";
+                pedidoHTML += "Total: " + $('tr.resultado td.total').text();
+                $("#pedido").html(pedidoHTML);
+                $('#pedido').addClass('cestacss');
+            }
+
+        </script>
+    </head>
+    <body>
+        <form action="" method="post">
+            <table id="cesta">
+                <thead>
+                    <tr>
+                        <th class="cantidad">Cantidad</th>
+                        <th class="elemento">Elemento</th>
+                        <th class="precio">Precio</th>
+                        <th class="total">Total</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr class="subtotal">
+                        <td class="cantidad">&nbsp;</td>
+                        <td class="elemento">Total productos / Subtotal</td>
+                        <td class="precio">&nbsp;</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                    <tr class="iva">
+                        <td class="cantidad">&nbsp;</td>
+                        <td class="elemento">IVA</td>
+                        <td class="precio">21%</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                    <tr class="resultado">
+                        <td class="cantidad">&nbsp;</td>
+                        <td class="elemento">Total</td>
+                        <td class="precio">&nbsp;</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                    <tr class="acciones">
+                        <td>&nbsp;</td>
+                        <td><input type="button" name="recalcular" value="Recalcular" id="recalcular" onclick="pedido()"/></td>
+                        <td>&nbsp;</td>
+                        <td><input type="button" name="enviar" value="Hacer pedido" id="enviar" onclick="pedido()"/></td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td class="cantidad"><input type="text" name="cant1" value="1" id="cant1" maxlength="2" size="3" /></td>
+                        <td class="elemento">Fotocopia B/N</td>
+                        <td class="precio">0,02€</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="cantidad"><input type="text" name="cant2" value="1" id="cant2" maxlength="2" size="3" /></td>
+                        <td class="elemento">Fotocopia Color</td>
+                        <td class="precio">0,30€</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="cantidad"><input type="text" name="cant3" value="1" id="cant3" maxlength="2" size="3" /></td>
+                        <td class="elemento">Encuadernación mín 50h</td>
+                        <td class="precio">3,00€</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="cantidad"><input type="text" name="cant4" value="1" id="cant4" maxlength="2" size="3" /></td>
+                        <td class="elemento">Encuadernación 50-100h</td>
+                        <td class="precio">5,00€</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="cantidad"><input type="text" name="cant5" value="1" id="cant5" maxlength="2" size="3" /></td>
+                        <td class="elemento">Impresión B/N</td>
+                        <td class="precio">0,05€</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="cantidad"><input type="text" name="cant6" value="1" id="cant6" maxlength="2" size="3" /></td>
+                        <td class="elemento">Impresión color</td>
+                        <td class="precio">0,50€</td>
+                        <td class="total">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="pedido">
+            </div>
+        </form>
+    </body>
+</html>

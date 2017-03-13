@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Estrellas Capitulo 10</title>
+        <LINK REL=StyleSheet HREF="tablaventas.css" TYPE="text/css">
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                var rellenacapa = function (ciudad) {
+                    $('#datosciudad').empty();
+                    $.get('verciudad.php', {'nombreEstrella': ciudad}, function (data) {
+                        $('#datosciudad').html(data);
+                    });
+                };
+
+                var completa = function (data) {
+                    $('#mainContent').html(data);
+                    $('table td:nth-child(3)').each(function () {
+                        $(this).click(function () {
+                            rellenacapa($(this).text());
+                        }).addClass('mano');
+                    });
+                    $('tbody tr:even').removeClass('impar').addClass('par');
+                    $('tbody tr:odd').removeClass('par').addClass('impar');
+                };
+
+                $.get('tabla.php', function (data) {
+                    completa(data);
+                });
+                /*	$('#mainContent').load('tabla.php',1,function(response, status, xhr) {
+                 if (status == "success") {
+                 completa();
+                 }
+                 });*/
+                /*var estilosfilas=function(tabla){
+                 $('tbody tr:even',tabla).removeClass('impar').addClass('par');
+                 $('tbody tr:odd',tabla).removeClass('par').addClass('impar');
+                 }*/
+            });
+        </script>
+        <style type="text/css">
+            body {
+                font: 100% Verdana, Arial, Helvetica, sans-serif;
+                background: #666666;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                color: #000000;
+            }
+            #container {
+                width: 46em;
+                background: #FFFFFF;
+                margin: 0 auto;
+                border: 1px solid #000000;
+                text-align: left;
+            }
+            #mainContent {
+                padding: 0 20px;
+            }
+            .mano {
+                cursor:pointer;
+            }
+            .vciudad{
+                background-color:#FCF;
+            }
+        </style></head>
+
+    <body>
+        <div id="container">
+            <div id="mainContent">
+            </div>
+            <div id='datosciudad' class="vciudad"></div>
+        </div>
+    </body>
+</html>
