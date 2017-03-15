@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Estrellas Capitulo 10 - II</title>
+        <link rel=StyleSheet href="tablaventas.css" type="text/css">
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+
+            $(document).ready(function () {
+
+                var mostrarDatos = function (estrella) {
+                    $('#capaDatos').empty();
+                    $.get('verEstrella.php', {'nombreEstrella': estrella}, function (data) {
+                        $('#capaDatos').html(data);
+                    });
+                };
+
+                var crearTabla = function (data) {
+                    $('#capaTabla').html(data);
+                    $('table td:nth-child(1)').each(function () {
+                        $(this).click(function () {
+                            mostrarDatos($(this).text());
+                        }).addClass('selectorMano');
+                    });
+
+                    $('tbody tr:even').removeClass('impar').addClass('par');
+                    $('tbody tr:odd').removeClass('par').addClass('impar');
+                    $('table thead th').addClass('cabecera');
+
+                    $('table').each(function () {
+                        var tabla = $(this);
+                        $('thead th', tabla).each(function (columna) {
+
+                            var cabecera = $(this);
+                            if (cabecera.is('.cabecera')) {
+                                cabecera.addClass('clickable').hover(function () {
+                                    cabecera.addClass('hover');
+                                }, function () {
+                                    cabecera.removeClass('hover');
+                                });
+
+                                cabecera.click(function () {
+                                    var filas = tabla.find('tbody > tr').get();
+                                    filas.sort(function (a, b) {
+                                        var claveA = $(a).children('td').eq(columna).text().toUpperCase();
+                                        var claveB = $(b).children('td').eq(columna).text().toUpperCase();
+                                        if (claveA < claveB)
+                                            return -1;
+                                        if (claveA > claveB)
+                                            return 1;
+                                        return 0;
+                                    });
+
+                                    $.each(filas, function (index, fila) {
+                                        tabla.children('tbody').append(fila);
+                                    });
+
+                                    tabla.find('td').removeClass('tablaOrdenada');
+                                    tabla.find('td').filter(':nth-child(' + (columna + 1) + ')').addClass('tablaOrdenada');
+
+                                });
+                            }
+                        });
+                    });
+                };
+
+                $.get('tabla.php', function (datosConstelacion) {
+                    crearTabla(datosConstelacion);
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="capaContenedor">
+            <div id="capaTabla"></div>
+            <div id="capaDatos"></div>
+        </div>
+    </body>
+</html>

@@ -1,4 +1,4 @@
-<?php header('Content-type: text/html; charset=iso-8859-1'); ?>
+<?php header('Content-type: text/html; charset=utf8'); ?>
 
 <?php
 $conexion = mysqli_connect("localhost", "root", "", "bayer");
@@ -11,8 +11,7 @@ FROM
 WHERE
     designation LIKE '%Draconis';";
 
-$ejecucionQuery = mysqli_query($conexion, $estrellasDragon);
-?>
+$ejecucionQuery = mysqli_query($conexion, $estrellasDragon);?>
 
 <table id="estrellas"><thead><tr><th>Nombre</th><th>Identificador</th><th>Diametro Solar</th><th>Luminosidad Absoluta</th><th>Luminosidad Bolometrica</th></tr></thead>
     <tbody>    

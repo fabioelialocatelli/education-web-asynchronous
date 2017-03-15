@@ -1,19 +1,52 @@
+* {    
+    font-family: sans-serif;
+    color: wheat;
+}
+body {
+    background-color: cornflowerblue;
+}
+th {
+    color: darkslategrey;
+    text-align: center;    
+}
+#estrellas {
+    width: 70em;
+    margin: auto;
+    table-layout: fixed;
+}
+#capaContenedor {
+    width: 75em;
+    background-color: wheat;
+    margin: auto;
+    padding: 0.25em;
+}
+#capaTabla {
+    padding: 0.5em;
+}
+#capaDatos {
+    width: 70em;
+    margin: auto;
+    background-color: darkslategrey;
+}
+.selectorMano {
+    cursor: pointer;
+}
 .impar {
-    background-color: #e4e3e2;  
+    background-color: grey;  
 }
 .par {
-    background-color: #cacaca;
+    background-color: darkslategrey;
 }
-.titulo {
-    background-color: #8b8b8b;
+.cabecera {
+    background-color: darkslateblue;
 }
 .hover {
-    background-color: #2c2f28;
+    background-color: gold;
 }
 .clickable {
-    color: #FFF;
+    color: whitesmoke;
 }
-.ordenar {
-    background-color: #3FF;
-    color: #F3C;
+.tablaOrdenada {
+    background-color: darkslateblue;
+    color: whitesmoke;
 }

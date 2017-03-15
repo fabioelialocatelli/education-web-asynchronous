@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Validacion Formularios JQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <LINK REL=StyleSheet HREF="estiloform.css" TYPE="text/css">
+
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            function enviarFormulario() {
+
+                $('#confirmacionEnvio').html('');
+
+                var error = false;
+                $(':input.requerido').each(function () {
+                    if ($(this).val().length === 0)
+                        error = true;
+                });
+
+                if (error) {
+                    $('#confirmacionEnvio').html('Por favor rellene los campos requeridos');
+                } else {
+                    $('#confirmacionEnvio').html('Muchas gracias por rellenar el formulario');
+                }
+            }
+            ;
+        </script>
+    </head>
+    <body>
+        <form>
+            <div>
+                <h1>Formulario de Contacto :</h1>
+                <label>
+                    <span>Su nombre</span><input id="nombre" type="text" name="nombre"  class="requerido"/>
+                </label>
+
+                <label>
+                    <span>Dirección de Email</span><input id="email" type="text" name="email"  class="requerido"/>
+                </label>
+
+                <label>
+                    <span>Asunto</span><input id="asunto" type="text" name="asunto" class="requerido"/>
+                </label>
+
+                <label>
+                    <input type="button" value="Enviar" onclick="enviarFormulario();"/>
+                </label>
+            </div>
+        </form>
+        <div id="confirmacionEnvio"></div>
+    </body>
+</html>
