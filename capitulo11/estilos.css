@@ -1,0 +1,125 @@
+*{
+    font-family: sans-serif;
+}
+#cabecera {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+#cabecera li {
+    display: inline;
+    font-size: 16pt;
+}
+#menu {
+  background-color: black;
+  color: white;
+  float: left;
+  width: 13%;
+  padding: 0px 15px;
+}
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#contenido {
+  float: left;
+  width: 80%;
+}
+#contenido #principal {
+  float: left;
+  width: 75%;
+}
+#contenido #secundario {
+  float: right;
+  width: 20%;
+  margin: 0 0.5em 0 0;
+}
+ 
+#pie {
+    color: white;
+    background-color: black;
+    clear: both;
+    text-align: center;
+}
+.mano{
+    cursor:pointer;
+}
+table {
+   width: 100%;
+   border: 1px solid #999;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 1em;
+}
+thead tr{
+    background: #000;
+    color: #fff;
+}
+tbody td {
+   padding: 0.3em;
+   border-top: 1px solid #999;
+}
+tbody tr:nth-child(even) {
+   background: #eee;
+}
+
+#secundario input[type="button"] {
+    background: #999;
+    color:#fff;
+    font-family: Tahoma, Geneva, sans-serif;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid #999;
+    margin: 2px 0;
+    padding: 5px;
+}
+
+#ciudades{
+    position:relative;
+    background:#3F9;
+    width:440px;
+    height:186px;
+    overflow:scroll;
+    margin:1em auto;
+    padding:0;
+    text-align:center; 
+    z-index:2;
+}
+#ciudades .imagenes{
+    position:relative;
+    width:840px;
+    z-index:1;
+}
+#ciudades a{
+    float:left;
+    margin:10px;
+    height:146px;
+}
+#ciudades .detalle{
+    display:none;
+}
+#ciudades .control {
+    position:absolute;
+    z-index:3;
+    left:0;
+    top:0;
+}
+img.ampliada{
+    position:absolute;
+    z-index:5;
+    cursor:pointer;
+}
+.detallesampliados{
+    background-color:#39F;
+    color:#FFF;
+    width:100px;
+    padding:5px;
+    font-size:18px;
+    font-weight:bold;
+    text-align:right;
+    position:absolute;
+    z-index:6;
+}
+
