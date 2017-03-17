@@ -134,9 +134,11 @@ var iconoLupa = crearIconos('carrusel/lupa.gif');
 function borrar() {
     $('div #principal').load("borrar.html");
 }
-function borrar2() {
-    vtabla = $('#tabla').attr('value');
-    vcampo = $('#campo').attr('value');
-    vdato = $('#dato').attr('value');
-    $('div #principal').load("borrar.php", {'tabla': vtabla, 'campo': vcampo, 'dato': vdato});
+
+function borrarDatos() {
+    vtabla = $('#nombreTabla').val();
+    vcampo = $('#nombreCampo').val();
+    vdato = $('#dato').val();
+    alert(vtabla + " " + vcampo);
+    $('div #principal').load("borrar.php", {'nombreTabla': vtabla, 'nombreCampo': vcampo, 'dato': vdato});
 }

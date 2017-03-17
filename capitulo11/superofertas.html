@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Super Ofertas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            * {
+                font-family: sans-serif;
+            }
+            .titulo{
+                color: darkslateblue;
+                text-decoration: underline;
+            }
+            .nombreHotel{
+                color: cornflowerblue;
+                text-transform: uppercase;
+            }
+            body {
+                background-color: cornflowerblue;
+            }            
+            table {
+                width: 25%;
+                border: 1px outset black;
+            }
+            #muestra {
+                border-style: outset;
+                border-width: 2px;
+                border-radius: 0.5em;
+                box-shadow: 5px 5px 10px cornflowerblue;
+            }
+            #capaOfertas {
+                background-color: cornsilk;
+                border-radius: 1em;
+                border-style: dashed;
+                width: 50%;
+                text-align: left;
+            }
+            #muestra, #capaOfertas{
+                padding: 0.75em;                
+            }
+            #capaOfertas, table {
+                margin: auto;
+            }
+        </style>
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function () {
+                $.get('ofertasxml.php', function (data) {
+
+                    $('#capaOfertas').empty();
+                    $('#capaOfertas').append("<div id=\"muestra\"></div>");
+
+                    $(data).find('hoteles').each(function () {
+
+                        var entrada = $(this);
+                        var contenidoCapa = "<table><thead><tr><th colspan=2>";
+                        contenidoCapa += "HOTEL: <span class=\"nombreHotel\">" + entrada.find('hotel').text() + "</span></th></tr>";
+                        contenidoCapa += "</thead><tbody><tr><td>Días: " + entrada.find('días').text();
+                        contenidoCapa += "</td><td>Precio: " + entrada.find('precio').text() + "</td></tr>";
+                        contenidoCapa += "</tbody><tfooter><tr><td colspan=2>";
+
+                        var definicion = entrada.find('opiniones');
+                        var numeroOpinion = 1;
+                        definicion.find('op').each(function () {
+                            contenidoCapa += "<b>Opinion " + numeroOpinion + ":</b> " + $(this).text() + "<br>";
+                        });
+
+                        contenidoCapa += "</td></tr></tfooter></table>";
+                        $('#muestra').append(contenidoCapa);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="capaOfertas"></div>
+    </body>
+</html>
