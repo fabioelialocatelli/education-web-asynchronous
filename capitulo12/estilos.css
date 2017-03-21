@@ -1,0 +1,69 @@
+*{
+    font-family: sans-serif;
+}
+
+.head-image img{
+    width: 100%;
+    height: 300px;
+    opacity: 0.6;
+}
+ 
+.fila{
+    width: 100%;
+}
+ 
+.contenido{
+    width: 70%;
+    height: auto;
+    float: left;
+    margin-right: 20px
+}
+ 
+.sidebar{
+    width: 27%;
+    height: auto;
+    float: right;
+}
+ 
+.footer{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    float: left;
+    background-color: #110ce6;
+}
+ 
+.footer p{
+    padding: 5px;
+    font-size: 20px;
+    color: #fff;
+}
+ 
+.iconos{
+    padding-top: 20px;
+    width: 12%;
+    height: auto;
+    float: right;
+}
+
+.sidebar li {
+    width: 150px;
+    border-style: solid;
+    list-style-type: none;
+    margin: 5px;
+    padding: 2px;
+    border-color: #993;
+    background-color: #CFF;
+}
+
+h2 { text-align:center; font:normal 150% Georgia; }
+#infoSlider { width:650px; margin:auto; padding:0 50px 50px; background-color:#ebebeb; border:1px solid #898989; }
+.visor { width:607px; height:343px; margin:0 auto 40px; padding:1px; overflow:hidden; position:relative; border:1px solid #898989; }
+.contenido { width:610px; height:335px; position:relative; }
+.elemento { width:304px; float:left; font-family:Tahoma; text-align:center; background-color:#ebebeb; }
+.elemento h2 { font-size:100%; margin:10px 0; }
+.elemento dl { margin:10px 0; }
+.elemento dt, .elemento dd { float:left; width:149px; text-align:right; margin:0; font-size:70%; }
+.elemento dt { font-weight:bold; margin-right:5px; }
+.elemento dd { text-align:left; }
+.elemento img { border:1px solid #898989; background-color:#ffffff; padding:1px; width:300px; height:200px }
