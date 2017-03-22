@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario JQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" media="screen" href="formulario.css" rel="Stylesheet" />
+
+        <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <link type="text/css" media="screen" href="darkhive/jquery-ui.css" rel="Stylesheet" />
+        <script type="text/javascript" src="darkhive/jquery-ui.js"></script> 
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $("#tabs").tabs();
+                $.datepicker.regional['it'] = {
+
+                    closeText: 'Chiudi',
+                    prevText: 'Indietro',
+                    nextText: 'Avanti',
+                    currentText: 'Adesso',
+
+                    monthNames: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+                    monthNamesShort: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+
+                    dayNames: ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
+                    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mer;', 'Gio', 'Ven', 'Sab'],
+                    dayNamesMin: ['Do', 'Lu', 'Ma', 'Me', 'Gi', 'Ve', 'Sa'],
+
+                    weekHeader: 'Se',
+                    dateFormat: 'dd/mm/yy',
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: '',
+                    maxDate: '-1d'
+                };
+
+                $.datepicker.setDefaults($.datepicker.regional['it']);
+                $('#fecha').datepicker();
+                var prov = [
+                    "Milano",
+                    "Genova",
+                    "Palermo",
+                    "Cagliari"
+                ];
+                $("#prov").autocomplete({source: prov});
+            });
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>Nombre y Apellidos:</td>
+                <td><input name="nombre" id="nombre" type="text"/></td>
+            </tr>
+            <tr>
+                <td>Fecha de Nacimiento:</td>
+                <td><input name="nacimiento" id="fecha" type="text"/></td>
+            </tr>
+            <tr>
+                <td>Dirección:</td>
+                <td><input name="direccion" id="direccion" type="text"/></td>
+            </tr>
+            <tr>
+                <td>Población:</td>
+                <td><input name="poblacion" id="poblacion" type="text"/></td>
+            </tr>
+            <tr>
+                <td>Provincia:</td>
+                <td><input name="provincia" id="provincia" type="text"/></td>
+            </tr>
+        </table>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Ocio</a></li>
+                <li><a href="#tabs-2">Cultura</a></li>
+                <li><a href="#tabs-3">Deportes</a></li>
+                <li><a href="#tabs-4">Musica</a></li>
+            </ul>
+            <div id="tabs-1">
+                <input type="radio" name="ocio"/>Pasear
+                <input type="radio" name="ocio"/>Descansar
+                <input type="radio" name="ocio"/>Naturaleza
+            </div>
+            <div id="tabs-2">
+                <input type="radio" name="cultura"/>Museos
+                <input type="radio" name="cultura"/>Bibliotecas
+                <input type="radio" name="cultura"/>Viajar
+            </div>
+            <div id="tabs-3">
+                <input type="radio" name="deportes"/>Fitness
+                <input type="radio" name="deportes"/>Natación
+                <input type="radio" name="deportes"/>Basket
+            </div>
+            <div id="tabs-4">
+                <input type="radio" name="musica"/>Clasica
+                <input type="radio" name="musica"/>Pop
+                <input type="radio" name="musica"/>Metal
+            </div>
+        </div>
+    </body>
+</html>

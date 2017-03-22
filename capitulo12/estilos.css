@@ -7,24 +7,24 @@
     height: 300px;
     opacity: 0.6;
 }
- 
+
 .fila{
     width: 100%;
 }
- 
+
 .contenido{
     width: 70%;
     height: auto;
     float: left;
     margin-right: 20px
 }
- 
+
 .sidebar{
     width: 27%;
     height: auto;
     float: right;
 }
- 
+
 .footer{
     padding-top: 5px;
     padding-bottom: 5px;
@@ -32,13 +32,13 @@
     float: left;
     background-color: #110ce6;
 }
- 
+
 .footer p{
     padding: 5px;
     font-size: 20px;
     color: #fff;
 }
- 
+
 .iconos{
     padding-top: 20px;
     width: 12%;

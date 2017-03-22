@@ -13,16 +13,16 @@ and open the template in the editor.
 
         <link type="text/css" media="screen" href="jqueryui/jquery-ui.css" rel="Stylesheet" />
         <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-        
+
         <script language="javascript">
             $(document).ready(function () {
                 $('.footer').animate({backgroundColor: '#000'}, 5000);
-                
+
                 //Ejemplos requeridos solo para demonstrar las funcionalidades
-                
+
                 /*$('.footer').effect('explode', {pieces: 32}, 5000);
-                $('ul').sortable({opacity:.7,cursor:'move',axis:'y'});*/
-                
+                 $('ul').sortable({opacity:.7,cursor:'move',axis:'y'});*/
+
                 $('.sidebar').accordion({"active": 1, "event": 'mouseenter'});
                 $('.footer').resizable({stop: function () {
                         if ($(this).width() < 250)
@@ -52,7 +52,7 @@ and open the template in the editor.
                 <div id="tabs">
                     <ul>
                         <li><a href="#tabs-1">Inicio</a></li>
-                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="proyectos.php">Proyectos</a></li>
                         <li><a href="contacto.php">Contacto</a></li>
                         <li><a href="error1.php">Página error</a></li>
                     </ul>

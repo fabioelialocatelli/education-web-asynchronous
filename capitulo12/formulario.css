@@ -1,0 +1,19 @@
+*{    
+    font-family: sans-serif;
+}
+#tabs, table{
+    margin: 0.75em;
+}
+table {
+    border-collapse: collapse;
+    box-shadow: 2px 2px 4px cornflowerblue;    
+}
+tr {
+    background: rgba(101, 156, 239, 0.5); 
+}
+td {
+    border: dotted 1px cornflowerblue;
+    padding: 0.5em;
+    text-align: center;
+    vertical-align: top;
+}

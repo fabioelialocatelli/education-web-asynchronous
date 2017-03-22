@@ -10,25 +10,27 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script language="javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-        
+
         <!--Plugin-->        
-        <link type="text/css" media="screen" href="jqueryui/jquery-ui.css" rel="Stylesheet" />
+        <link type="text/css" media="screen" href="darkhive/jquery-ui.css" rel="Stylesheet" />
         <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-        
+
 
         <script language="javascript">
             $(document).ready(function () {
-                var nombres = [
-                    "Juan",
-                    "Jose",
-                    "Antonio",
-                    "Marc",
-                    "Javier",
-                    "María",
-                    "Marta",
-                    "Laia",
-                    "Alba"
-                ];
+
+                /*var nombres = [
+                 "Juan",
+                 "Jose",
+                 "Antonio",
+                 "Marc",
+                 "Javier",
+                 "María",
+                 "Marta",
+                 "Laia",
+                 "Alba"
+                 ];*/
+
                 $("#nombre").autocomplete({source: "nombres.php"});
                 $.datepicker.regional['es'] = {
                     closeText: 'Cerrar',
@@ -60,12 +62,12 @@ and open the template in the editor.
                 Texto += "<br>Fecha: " + $('#cita').val();
                 $('#capaDialog').html(Texto);
                 $('#capaDialog').dialog({
-                    
+
                     height: 200,
                     closeOnEscape: false,
-                    resizable: true,                    
+                    resizable: true,
                     title: 'Datos Formulario',
-                    
+
                     buttons: {'Cerrar': function () {
                             $(this).dialog('close');
                         }},
@@ -78,7 +80,7 @@ and open the template in the editor.
     </head>
     <body>
         <div id="capaDialog" title="Dialog"></div>
-        
+
         <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
             <label for="nombre">Tu nombre:</label><br />
             <input id="nombre" name="nombre" type="text" value="" size="30" /><br />
