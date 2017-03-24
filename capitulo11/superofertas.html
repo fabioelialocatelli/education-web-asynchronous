@@ -23,10 +23,20 @@ and open the template in the editor.
             }
             body {
                 background-color: cornflowerblue;
-            }            
+            }
             table {
-                width: 25%;
-                border: 1px outset black;
+                width: 35%;
+                border: 1px inset black;
+                border-radius: 0.35em;
+                float: right;
+            }
+            span{
+                text-transform: uppercase;
+                font-weight: bold;
+                font-style: italic;
+            }
+            ul{
+                list-style: armenian;
             }
             #muestra {
                 border-style: outset;
@@ -44,7 +54,7 @@ and open the template in the editor.
             #muestra, #capaOfertas{
                 padding: 0.75em;                
             }
-            #capaOfertas, table {
+            #capaOfertas {
                 margin: auto;
             }
         </style>
@@ -62,17 +72,20 @@ and open the template in the editor.
                         var entrada = $(this);
                         var contenidoCapa = "<table><thead><tr><th colspan=2>";
                         contenidoCapa += "HOTEL: <span class=\"nombreHotel\">" + entrada.find('hotel').text() + "</span></th></tr>";
-                        contenidoCapa += "</thead><tbody><tr><td>Días: " + entrada.find('días').text();
+                        contenidoCapa += "</thead><tbody>";
+                        contenidoCapa += "<tr><td>Días: " + entrada.find('días').text();
                         contenidoCapa += "</td><td>Precio: " + entrada.find('precio').text() + "</td></tr>";
-                        contenidoCapa += "</tbody><tfooter><tr><td colspan=2>";
+                        contenidoCapa += "</tbody></tfooter></table>";
 
                         var definicion = entrada.find('opiniones');
-                        var numeroOpinion = 1;
-                        definicion.find('op').each(function () {
-                            contenidoCapa += "<b>Opinion " + numeroOpinion + ":</b> " + $(this).text() + "<br>";
-                        });
+                        var numeroOpinion = definicion.find('opinion').length;
 
-                        contenidoCapa += "</td></tr></tfooter></table>";
+                        contenidoCapa += "<span>Opiniones: " + numeroOpinion + "</span><br>";
+                        contenidoCapa += "<ul>";
+                        definicion.find('opinion').each(function () {
+                            contenidoCapa += "<li>" + $(this).text() + "<br>";
+                        });
+                        contenidoCapa += "</ul>";
                         $('#muestra').append(contenidoCapa);
                     });
                 });

@@ -1,19 +1,30 @@
 *{    
     font-family: sans-serif;
 }
-#tabs, table{
-    margin: 0.75em;
+label {
+    margin: 0.25em;
+    padding-bottom: 0.55em;
+    display: block;
+    text-align: left;
 }
-table {
-    border-collapse: collapse;
-    box-shadow: 2px 2px 4px cornflowerblue;    
+input{
+    display: block;
+    float: right;
+    clear: left;
+    margin: 0.25em;
+    border-radius:0.25em;
+    border: 1px solid cornflowerblue;
 }
-tr {
-    background: rgba(101, 156, 239, 0.5); 
+form{
+    display: table;
+    padding: 0.25em;
+    background: rgba(101, 156, 239, 0.5);
+    box-shadow: 2px 2px 4px cornflowerblue;
 }
-td {
-    border: dotted 1px cornflowerblue;
-    padding: 0.5em;
-    text-align: center;
-    vertical-align: top;
+input[type = "radio"]{
+    float: left;
+}
+#tabs, form{
+    margin-left: 0.75em;
+    margin-bottom: 0.55em;
 }

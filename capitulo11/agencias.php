@@ -22,10 +22,8 @@ if (isset($_POST["usuario"])) {
 //Formulario para solicitar datos de acceso
     ?>
     <form id="form1" name="form1">
-        Usuario:
-        <input name="user" type="text" id="user" size="10" maxlength="10" />
-        Contraseña: 
-        <input name="pass" type="password" id="pass" size="10" maxlength="10" />
+        <label>Usuario:<input name="user" type="text" id="user" size="10" maxlength="10" /></label>
+        <label>Contraseña:<input name="pass" type="password" id="pass" size="10" maxlength="10" /></label>
         <input type="button" onclick="controlpass(user, pass)" value="Comprobar" />
     </form>
     <?php

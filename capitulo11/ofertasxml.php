@@ -1,24 +1,31 @@
-<?php header('Content-type: text/xml;'); ?>
-<?php
+<?php 
+
+header('Content-type: text/xml;'); 
 
 $conexion = mysqli_connect("localhost", "root", "", "viajes");
-$sel = "SELECT * FROM OFERTAS";
-$exec = mysqli_query($conexion, $sel);
+$ofertas = "SELECT * FROM ofertas;";
+$buscarOfertas = mysqli_query($conexion, $ofertas);
 
-$resultado = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-$resultado .= "<ofertas>";
+$documentoXML = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+$documentoXML .= "<ofertas>";
 
-while ($registro = mysqli_fetch_array($exec)) {
-    $resultado .= "<hoteles><hotel>" . $registro[1] . "</hotel>";
-    $resultado .= "<días>" . $registro[2] . "</días>";
-    $resultado .= "<precio>" . $registro[3] . "</precio>";
-    $resultado .= "<opiniones>";
-    $sel2 = "SELECT * FROM opiniones WHERE Hotel Like '" . $registro[1] . "'";
-    $exec2 = mysqli_query($conexion, $sel2);
-    while ($registro2 = mysqli_fetch_array($exec2)) {
-        $resultado .= "<op>" . $registro2[1] . "</op>";
+while ($ofertas = mysqli_fetch_array($buscarOfertas)) {
+    
+    $documentoXML .= "<hoteles>";
+    $documentoXML .= "<hotel>" . $ofertas[1] . "</hotel>";
+    $documentoXML .= "<días>" . $ofertas[2] . "</días>";
+    $documentoXML .= "<precio>" . $ofertas[3] . "</precio>";    
+    $documentoXML .= "<opiniones>";
+    
+    $opiniones = "SELECT * FROM opiniones WHERE hotel LIKE '" . $ofertas[1] . "';";
+    
+    $buscarOpiniones = mysqli_query($conexion, $opiniones);
+    while ($resultadoOpiniones = mysqli_fetch_array($buscarOpiniones)) {
+        $documentoXML .= "<opinion>" . $resultadoOpiniones[2] . "</opinion>";
     }
-    $resultado .= "</opiniones></hoteles>";
+    $documentoXML .= "</opiniones>";    
+    $documentoXML .= "</hoteles>";
 }
-$resultado .= "</ofertas>";
-echo($resultado);
+$documentoXML .= "</ofertas>";
+
+echo($documentoXML);

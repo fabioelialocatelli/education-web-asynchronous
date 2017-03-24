@@ -30,7 +30,7 @@ and open the template in the editor.
                     monthNamesShort: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
 
                     dayNames: ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
-                    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mer;', 'Gio', 'Ven', 'Sab'],
+                    dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
                     dayNamesMin: ['Do', 'Lu', 'Ma', 'Me', 'Gi', 'Ve', 'Sa'],
 
                     weekHeader: 'Se',
@@ -43,66 +43,51 @@ and open the template in the editor.
                 };
 
                 $.datepicker.setDefaults($.datepicker.regional['it']);
-                $('#fecha').datepicker();
-                var prov = [
+                $('#fechaNacimiento').datepicker();
+                var provinciasItalianas = [
                     "Milano",
                     "Genova",
                     "Palermo",
                     "Cagliari"
                 ];
-                $("#prov").autocomplete({source: prov});
+                $("#provincia").autocomplete({source: provinciasItalianas});
             });
         </script>
     </head>
     <body>
-        <table>
-            <tr>
-                <td>Nombre y Apellidos:</td>
-                <td><input name="nombre" id="nombre" type="text"/></td>
-            </tr>
-            <tr>
-                <td>Fecha de Nacimiento:</td>
-                <td><input name="nacimiento" id="fecha" type="text"/></td>
-            </tr>
-            <tr>
-                <td>Dirección:</td>
-                <td><input name="direccion" id="direccion" type="text"/></td>
-            </tr>
-            <tr>
-                <td>Población:</td>
-                <td><input name="poblacion" id="poblacion" type="text"/></td>
-            </tr>
-            <tr>
-                <td>Provincia:</td>
-                <td><input name="provincia" id="provincia" type="text"/></td>
-            </tr>
-        </table>
+        <form>
+            <label>Nombre y Apellidos:<input id="nombre" type="text"/></label>
+            <label>Fecha de Nacimiento:<input id="fechaNacimiento" type="text"/></label>
+            <label>Dirección:<input id="direccion" type="text"/></label>
+            <label>Población:<input id="poblacion" type="text"/></label>
+            <label>Provincia:<input id="provincia" type="text"/></label>
+        </form>
         <div id="tabs">
             <ul>
-                <li><a href="#tabs-1">Ocio</a></li>
-                <li><a href="#tabs-2">Cultura</a></li>
-                <li><a href="#tabs-3">Deportes</a></li>
-                <li><a href="#tabs-4">Musica</a></li>
+                <li><a href="#tab_1">Ocio</a></li>
+                <li><a href="#tab_2">Cultura</a></li>
+                <li><a href="#tab_3">Deportes</a></li>
+                <li><a href="#tab_4">Musica</a></li>
             </ul>
-            <div id="tabs-1">
-                <input type="radio" name="ocio"/>Pasear
-                <input type="radio" name="ocio"/>Descansar
-                <input type="radio" name="ocio"/>Naturaleza
+            <div id="tab_1">
+                <label><input type="radio" name="ocio"/>Pasear</label>
+                <label><input type="radio" name="ocio"/>Descansar</label>
+                <label><input type="radio" name="ocio"/>Naturaleza</label>
             </div>
-            <div id="tabs-2">
-                <input type="radio" name="cultura"/>Museos
-                <input type="radio" name="cultura"/>Bibliotecas
-                <input type="radio" name="cultura"/>Viajar
+            <div id="tab_2">
+                <label><input type="radio" name="cultura"/>Museos</label>
+                <label><input type="radio" name="cultura"/>Bibliotecas</label>
+                <label><input type="radio" name="cultura"/>Viajar</label>
             </div>
-            <div id="tabs-3">
-                <input type="radio" name="deportes"/>Fitness
-                <input type="radio" name="deportes"/>Natación
-                <input type="radio" name="deportes"/>Basket
+            <div id="tab_3">
+                <label><input type="radio" name="deportes"/>Fitness</label>
+                <label><input type="radio" name="deportes"/>Natación</label>
+                <label><input type="radio" name="deportes"/>Basket</label>
             </div>
-            <div id="tabs-4">
-                <input type="radio" name="musica"/>Clasica
-                <input type="radio" name="musica"/>Pop
-                <input type="radio" name="musica"/>Metal
+            <div id="tab_4">
+                <label><input type="radio" name="musica"/>Clasica</label>
+                <label><input type="radio" name="musica"/>Pop</label>
+                <label><input type="radio" name="musica"/>Metal</label>
             </div>
         </div>
     </body>

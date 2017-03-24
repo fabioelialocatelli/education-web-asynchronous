@@ -13,10 +13,27 @@ and open the template in the editor.
             * {                
                 font-family: sans-serif;
             }
-            #capaContenedor {
-                background-color: darkblue;
+            li{
+                list-style: none;
+                margin-left: 0.75em;
+            }
+            input[type="text"], input[type="button"]{
+                display: block;
+                padding: 0em;
+                margin: 0.25em;
+                width: 15%;
+            }
+            
+            #datosEstrella, form {
                 color: blanchedalmond;
+                background-color: darkslategrey;
                 border: 1px solid blanchedalmond;
+                font-style: italic;
+                width: 45%;
+                height: auto;
+                border-radius: 0.25em;
+                box-shadow: 1px 1px 2px darkslategrey;
+                margin: 0.35em;
             }
         </style>
         <script language="javascript" type="text/javascript">
@@ -38,46 +55,51 @@ and open the template in the editor.
                 objetoAjax.onreadystatechange = function () {
                     if (objetoAjax.readyState === 4)
                         if (objetoAjax.status === 200) {
-                            document.getElementById("busqueda").value = "Identificador HIP";
-                            document.getElementById("busqueda").select();
+                            document.getElementById("identificadorHIP").value = "Identificador HIP";
+                            document.getElementById("identificadorHIP").select();
                         } else {
                             alert("Error: " + objetoAjax.status);
                         }
                 };
-                objetoAjax.open("get", "estrellas.xml", true);
+                objetoAjax.open("get", "agencias.xml", true);
                 objetoAjax.send();
             }
 
             function muestraEstrellas() {
-                var busqueda = document.getElementById("busqueda");
-                var identificadorHIP = busqueda.value;
-                var capaContenedor = document.getElementById("capaContenedor");
+                var identificadorHIP = document.getElementById("identificadorHIP");
+                var identificadorHIP = identificadorHIP.value;
+                var datosEstrella = document.getElementById("datosEstrella");
 
                 var documentoXML = objetoAjax.responseXML;
                 var identificadorEstrella = documentoXML.getElementsByTagName("identifierHIP");
+                var bayerEstrella = documentoXML.getElementsByTagName("designation");
                 var distanciaEstrella = documentoXML.getElementsByTagName("lightYears");
                 var anoSolar = documentoXML.getElementsByTagName("gregorianYear");
 
-                capaContenedor.innerHTML = "<h3>" + identificadorHIP + "</h3>";
                 var estrellaEncontrada = false;
 
                 for (var i = 0; i < identificadorEstrella.length; i++) {
                     if (identificadorEstrella[i].firstChild.nodeValue === identificadorHIP) {
                         estrellaEncontrada = true;
-                        capaContenedor.innerHTML += "<b>Identificador HID Estrella:</b> " + identificadorEstrella[i].firstChild.nodeValue;
-                        capaContenedor.innerHTML += " - <b>Distancia:</b> " + distanciaEstrella[i].firstChild.nodeValue;
-                        capaContenedor.innerHTML += " - <b>Duracion Año:</b> " + anoSolar[i].firstChild.nodeValue + "<br>";
+
+                        datosEstrella.innerHTML = "<li>Identificador HIP: " + identificadorEstrella[i].firstChild.nodeValue;
+                        datosEstrella.innerHTML += "<li>Nombre Bayer: " + bayerEstrella[i].firstChild.nodeValue;
+                        datosEstrella.innerHTML += "<li>Distancia: " + distanciaEstrella[i].firstChild.nodeValue;
+                        datosEstrella.innerHTML += "<li>Duracion Año: " + anoSolar[i].firstChild.nodeValue;
                     }
                 }
+
                 if (!estrellaEncontrada) {
-                    capaContenedor.innerHTML += "<b>Estrella no encontrada...</b> ";
+                    datosEstrella.innerHTML += "Estrella no encontrada...";
                 }
             }
         </script>
     </head>
     <body onload="objetoAJAX()">
-        <input type="text" name="busqueda" id="busqueda">
-        <input type="button" name="botonBusqueda" id="botonBusqueda" value="Mostrar Estrellas" onclick="muestraEstrellas()">
-        <div id="capaContenedor">Estrellas</div>
+        <form>
+            <input type="text" id="identificadorHIP">
+            <input type="button" id="botonMuestra" value="Mostrar Estrellas" onclick="muestraEstrellas()"> 
+        </form>        
+        <div id="datosEstrella"></div>
     </body>
 </html>
