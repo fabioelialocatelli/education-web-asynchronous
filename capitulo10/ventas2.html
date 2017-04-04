@@ -46,7 +46,10 @@ and open the template in the editor.
                     capapagina.insertBefore(tabla);
                     repaginar();
 
-                    estilosfilas(tabla); //Aplicamos los estilos
+                    //estilosfilas(tabla); //Aplicamos los estilos
+                    
+                    
+                    
                     $('thead td', tabla).each(function (columna) {
                         //Buscamos en las celdas de cabecera el tipo de ordenación
                         var cabecera = $(this);
