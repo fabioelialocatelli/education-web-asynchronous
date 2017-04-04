@@ -1,0 +1,42 @@
+[
+    {
+        "Titulo": "Terral",
+        "Artista": "Pablo Alboran",
+        "Año": 2014,
+        "Genero": "Pop/Rock",
+        "Caratula": "terral"
+    },
+    {
+        "Titulo": "Un alumno más",
+        "Artista": "Melendi",
+        "Año": 2014,
+        "Genero": "Pop/Rock",
+        "Caratula": "alumno"
+    },
+    {
+        "Titulo": "Tanto",
+        "Artista": "Pablo alboran",
+        "Año": 2012,
+        "Genero": "Pop/Rock",
+        "Caratula": "tanto"
+    }, {
+        "Titulo": "Listen",
+        "Artista": "David Guetta",
+        "Año": 2014,
+        "Genero": "Dance",
+        "Caratula": "listen"
+    }, {
+        "Titulo": "Guettablaster",
+        "Artista": "David Guetta",
+        "Año": 2010,
+        "Genero": "Dance",
+        "Caratula": "blaster"
+    },
+    {
+        "Titulo": "Artesano",
+        "Artista": "Miguel Poveda",
+        "Año": 2012,
+        "Genero": "Flamenco",
+        "Caratula": "artesano"
+    }
+]
